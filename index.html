@@ -87,9 +87,9 @@ body.ar .proof-num{font-family:'Tajawal',sans-serif;font-weight:800}
 .fit-section{background:white;padding:100px 24px}
 .section-inner{max-width:1100px;margin:0 auto}
 .section-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--north);margin-bottom:12px;font-family:inherit}
-.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,46px);color:var(--ink);line-height:1.15;margin-bottom:16px;letter-spacing:-0.3px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,46px);color:#0F172A;line-height:1.15;margin-bottom:16px;letter-spacing:-0.3px}
 body.ar .section-title{font-family:'Tajawal',sans-serif;line-height:1.3;font-weight:800}
-.section-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:560px;margin-bottom:60px}
+.section-sub{font-size:16px;color:#475569;line-height:1.75;max-width:560px;margin-bottom:60px}
 
 .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:60px}
 .fit-card{border-radius:20px;padding:32px;position:relative;overflow:hidden}
@@ -122,9 +122,9 @@ body.ar .how-arrow{right:auto;left:-12px;transform:translateY(-50%) scaleX(-1)}
 .how-step:last-child .how-arrow{display:none}
 
 /* ── ARCHETYPES ── */
-.arch-section{background:#F0F4FF;padding:100px 24px}
+.arch-section{background:#F8FAFC;padding:100px 24px}
 .arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:60px}
-.arch-card{background:white;border:1.5px solid #E2E8F0;border-radius:18px;padding:28px;transition:all 0.25s;cursor:default;position:relative;overflow:hidden}
+.arch-card{background:#FFFFFF;border:1.5px solid #E2E8F0;color:#0F172A;border-radius:18px;padding:28px;transition:all 0.25s;cursor:default;position:relative;overflow:hidden}
 .arch-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .arch-card:nth-child(1)::before{background:linear-gradient(90deg,#2D6A8F,#5BA3C9)}
 .arch-card:nth-child(2)::before{background:linear-gradient(90deg,var(--compass),#059669)}
@@ -134,12 +134,14 @@ body.ar .how-arrow{right:auto;left:-12px;transform:translateY(-50%) scaleX(-1)}
 .arch-card:nth-child(6)::before{background:linear-gradient(90deg,#0E7490,#22D3EE)}
 .arch-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.1);border-color:var(--compass)}
 .arch-icon{font-size:36px;margin-bottom:14px;display:block}
-.arch-name{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);margin-bottom:6px}
+.arch-card *{color:#0F172A}
+.arch-role-tag{background:#F1F5F9;color:#334155 !important;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;display:inline-block}
+.arch-name{font-family:'DM Serif Display',serif;font-size:18px;color:#0F172A;margin-bottom:6px;display:block}
 body.ar .arch-name{font-family:'Tajawal',sans-serif;font-weight:700}
-.arch-tagline{font-size:12px;color:var(--muted);margin-bottom:14px;font-style:italic}
+.arch-tagline{font-size:12px;color:#475569;margin-bottom:14px;font-style:italic;display:block}
 body.ar .arch-tagline{font-style:normal}
 .arch-roles{display:flex;flex-wrap:wrap;gap:6px}
-.arch-role-tag{background:rgba(26,26,46,0.06);color:var(--ink2);font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px}
+.arch-role-tag{background:#F1F5F9;color:#1E293B;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px}
 
 /* ── ABOUT ── */
 .about-section{background:var(--ink);padding:100px 24px}
@@ -189,9 +191,21 @@ body.ar .footer-brand{font-family:'Tajawal',sans-serif;font-weight:800}
 .en-only{display:block}
 .ar-only{display:none !important}
 body.ar .en-only{display:none !important}
-body.ar .ar-only{display:block}
-body.ar li.ar-only{display:flex}
-body.ar .fit-card-list li.ar-only{display:flex}
+body.ar .ar-only{display:block !important}
+body.ar li.ar-only{display:flex !important}
+body.ar .fit-card-list li.ar-only{display:flex !important}
+body.ar .arch-roles span.ar-only{display:inline-block !important}
+body.ar .arch-roles span.en-only{display:none !important}
+body.ar h1.ar-only{display:block !important}
+body.ar h1.en-only{display:none !important}
+body.ar p.ar-only{display:block !important}
+body.ar p.en-only{display:none !important}
+body.ar div.ar-only{display:block !important}
+body.ar div.en-only{display:none !important}
+body.ar a.ar-only{display:inline-flex !important}
+body.ar a.en-only{display:none !important}
+body.ar span.ar-only{display:inline !important}
+body.ar span.en-only{display:none !important}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center}
