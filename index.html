@@ -227,6 +227,9 @@ body.ar span.en-only{display:none !important}
   .footer-inner{flex-direction:column;text-align:center}
   .footer-links{justify-content:center}
 }
+
+.btn-whatsapp{background:#25D366;color:white;border:none;border-radius:12px;padding:14px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:all 0.25s}
+.btn-whatsapp:hover{background:#1ebe5d;transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -257,8 +260,8 @@ body.ar span.en-only{display:none !important}
       <a href="#archetypes" class="nav-link en-only">Find Your Type</a>
       <a href="#archetypes" class="nav-link ar-only">اكتشفي نوعك</a>
       <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇸🇦 AR</button>
-      <a href="assessment.html" class="btn-nav en-only">Take Free Test →</a>
-      <a href="assessment.html" class="btn-nav ar-only">← ابدئي التقييم المجاني</a>
+      <a href="assessment.html" class="btn-nav en-only">Take the Test →</a>
+      <a href="assessment.html" class="btn-nav ar-only">← ابدئي التقييم المتاح</a>
     </div>
   </div>
 </nav>
@@ -285,17 +288,21 @@ body.ar span.en-only{display:none !important}
         <span class="h1-green">وتألقي فيه.</span>
       </h1>
 
-      <p class="hero-sub en-only">A skills assessment built by a global HR Director with 15+ years placing talent across 20+ countries. Discover where your strengths belong — then go there. <span class="hero-highlight">First Fit Check session free.</span></p>
-      <p class="hero-sub ar-only">تقييم مهارات بنته مديرة موارد بشرية عالمية بخبرة 15+ عامًا في توظيف المواهب عبر 20+ دولة. اكتشفي أين تنتمي نقاط قوتك — ثم اتجهي هناك. <span class="hero-highlight">جلسة التوافق الأولى مجانية.</span></p>
+      <p class="hero-sub en-only">A skills assessment built by a global HR Director with 15+ years placing talent across 20+ countries. Discover where your strengths belong — then go there. <span class="hero-highlight">First consultation is complimentary — book to check availability.</span></p>
+      <p class="hero-sub ar-only">تقييم مهارات بنته مديرة موارد بشرية عالمية بخبرة 15+ عامًا في توظيف المواهب عبر 20+ دولة. اكتشفي أين تنتمي نقاط قوتك — ثم اتجهي هناك. <span class="hero-highlight">احجزي جلسة التوافق.</span></p>
 
       <div class="hero-btns">
         <a href="assessment.html" class="btn-primary">
           <span class="en-only">Take the Free Skills Test →</span>
-          <span class="ar-only">← ابدئي التقييم المجاني</span>
+          <span class="ar-only">← ابدئي التقييم المتاح</span>
         </a>
-        <a href="https://calendly.com/maihanafy204/free-career-consultation" target="_blank" class="btn-ghost">
+        <a href="https://calendly.com/maihanafy204/30min" target="_blank" class="btn-ghost">
           <span class="en-only">Book a Fit Check</span>
           <span class="ar-only">احجزي جلسة التوافق</span>
+        </a>
+        <a href="https://wa.me/201204550555" target="_blank" class="btn-whatsapp">
+          <span class="en-only">&#128172; WhatsApp</span>
+          <span class="ar-only">&#128172; واتساب</span>
         </a>
       </div>
 
@@ -628,19 +635,23 @@ body.ar span.en-only{display:none !important}
     <h2 class="cta-title en-only">Ready to find your right place?</h2>
     <h2 class="cta-title ar-only">مستعدة للعثور على مكانك الصحيح؟</h2>
     <p class="cta-sub en-only">Start with the free skills test. 26 real scenarios. 10 minutes. A report that actually tells you something honest about where your strengths belong.</p>
-    <p class="cta-sub ar-only">ابدئي بالتقييم المجاني. 26 سيناريو واقعي. 10 دقائق. تقرير يُخبرك بصدق أين تنتمي نقاط قوتك.</p>
+    <p class="cta-sub ar-only">ابدئي بالتقييم المتاح. 26 سيناريو واقعي. 10 دقائق. تقرير يُخبرك بصدق أين تنتمي نقاط قوتك.</p>
     <div class="cta-btns">
       <a href="assessment.html" class="btn-primary">
         <span class="en-only">Take the Free Skills Test →</span>
-        <span class="ar-only">← ابدئي التقييم المجاني</span>
+        <span class="ar-only">← ابدئي التقييم المتاح</span>
       </a>
-      <a href="https://calendly.com/maihanafy204/free-career-consultation" target="_blank" class="btn-ghost" style="color:white;border-color:rgba(255,255,255,0.25)">
-        <span class="en-only">Book a Fit Check Session</span>
+      <a href="https://calendly.com/maihanafy204/30min" target="_blank" class="btn-ghost" style="color:white;border-color:rgba(255,255,255,0.25)">
+        <span class="en-only">Book a Fit Check</span>
         <span class="ar-only">احجزي جلسة التوافق</span>
       </a>
+        <a href="https://wa.me/201204550555" target="_blank" class="btn-whatsapp">
+      <span class="en-only">&#128172; WhatsApp</span>
+      <span class="ar-only">&#128172; واتساب</span>
+        </a>
     </div>
     <p class="cta-note en-only">Free test · No account needed · Results in 10 minutes</p>
-    <p class="cta-note ar-only">تقييم مجاني · لا تسجيل مطلوب · النتائج في 10 دقائق</p>
+    <p class="cta-note ar-only">تقييم متاح · لا تسجيل مطلوب · النتائج في 10 دقائق</p>
   </div>
 </section>
 
@@ -652,8 +663,8 @@ body.ar span.en-only{display:none !important}
     <div class="footer-links">
       <a href="assessment.html" class="en-only">Free Test</a>
       <a href="assessment.html" class="ar-only">التقييم</a>
-      <a href="https://calendly.com/maihanafy204/free-career-consultation" target="_blank" class="en-only">Book a Session</a>
-      <a href="https://calendly.com/maihanafy204/free-career-consultation" target="_blank" class="ar-only">احجزي جلسة</a>
+      <a href="https://calendly.com/maihanafy204/30min" target="_blank" class="en-only">Book a Session</a>
+      <a href="https://calendly.com/maihanafy204/30min" target="_blank" class="ar-only">احجزي جلسة</a>
       <a href="https://www.linkedin.com/in/mai-hanafy-7184a9a0/" target="_blank">LinkedIn</a>
     </div>
     <div class="footer-copy en-only">© 2026 Mai Hanafy · All rights reserved</div>
