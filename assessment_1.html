@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0F172A;--blue:#2563EB;--em:#10B981;--em2:#34D399;--gold:#FBBF24;--g50:#F8FAFC;--g100:#F1F5F9;--g200:#E2E8F0;--g400:#94A3B8;--g600:#475569}
+:root{--navy:#0F172A;--blue:#2563EB;--em:#10B981;--em2:#34D399;--gold:#10B981;--g50:#F8FAFC;--g100:#F1F5F9;--g200:#E2E8F0;--g400:#94A3B8;--g600:#475569}
 body{font-family:'Manrope',sans-serif;background:var(--g50);color:var(--navy);line-height:1.6;min-height:100vh}
 body.rtl{direction:rtl;font-family:'Tajawal',sans-serif}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,23,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(37,99,235,0.2);padding:0 20px}
@@ -374,6 +374,61 @@ function calc(){
   submitS(fs,overall,top3s,top3g);
 }
 
+
+// ── ARCHETYPE CALCULATION ─────────────────────────────────────────────────
+function getArchetype(fs) {
+  var archetypes = [
+    {
+      id:'analyst',
+      en:{name:'The Analyst', icon:'🧠', tagline:'You see what others miss in the data', roles:'Strategy, Finance, Research, Consulting'},
+      ar:{name:'المحلّل/ة', icon:'🧠', tagline:'ترى ما يفوت الآخرين في البيانات', roles:'الاستراتيجية، التمويل، البحث، الاستشارات'},
+      skills:['criticalThinking','dataLiteracy','problemSolving']
+    },
+    {
+      id:'connector',
+      en:{name:'The Connector', icon:'🤝', tagline:'You build trust and move people naturally', roles:'HR, Sales, PR, Customer Success'},
+      ar:{name:'الموصّل/ة', icon:'🤝', tagline:'تبني الثقة وتحرك الناس بشكل طبيعي', roles:'الموارد البشرية، المبيعات، العلاقات العامة'},
+      skills:['communication','collaboration','emotionalIntelligence']
+    },
+    {
+      id:'builder',
+      en:{name:'The Builder', icon:'⚡', tagline:'You start things and make them real', roles:'Product, Startups, Operations, Entrepreneurship'},
+      ar:{name:'البنّاء/ة', icon:'⚡', tagline:'تبدأ الأشياء وتجعلها حقيقية', roles:'المنتج، الشركات الناشئة، العمليات'},
+      skills:['initiative','accountability','learningAgility']
+    },
+    {
+      id:'navigator',
+      en:{name:'The Navigator', icon:'🧭', tagline:'You stay calm and find the path when things change', roles:'Project Management, Consulting, Crisis Roles'},
+      ar:{name:'الملاح/ة', icon:'🧭', tagline:'تبقى هادئًا وتجد الطريق عند التغيير', roles:'إدارة المشاريع، الاستشارات، إدارة الأزمات'},
+      skills:['adaptability','resilience','timeManagement']
+    },
+    {
+      id:'executor',
+      en:{name:'The Executor', icon:'🎯', tagline:'You get it done — reliably, every time', roles:'Operations, Finance, Engineering, Compliance'},
+      ar:{name:'المنجز/ة', icon:'🎯', tagline:'تنجز — بشكل موثوق، في كل مرة', roles:'العمليات، التمويل، الهندسة'},
+      skills:['accountability','timeManagement','techFluency']
+    },
+    {
+      id:'developer',
+      en:{name:'The Developer', icon:'🌱', tagline:'You grow people and earn their trust doing it', roles:'Coaching, L&D, People Management, Teaching'},
+      ar:{name:'المطوِّر/ة', icon:'🌱', tagline:'تنمّي الناس وتكسب ثقتهم في الوقت ذاته', roles:'التدريب، التعلم والتطوير، إدارة الأفراد'},
+      skills:['emotionalIntelligence','collaboration','communication']
+    }
+  ];
+
+  // Score each archetype by averaging its 3 key skills
+  var best = null, bestScore = -1;
+  archetypes.forEach(function(arch) {
+    var total = 0, count = 0;
+    arch.skills.forEach(function(sk) {
+      if (fs[sk]) { total += fs[sk].p; count++; }
+    });
+    var score = count > 0 ? total / count : 0;
+    if (score > bestScore) { bestScore = score; best = arch; }
+  });
+  return best;
+}
+
 function renderRep(fs,overall,top3s,top3g){
   var name=document.getElementById('iN').value.trim();
   var role=document.getElementById('iR').value.trim();
@@ -384,11 +439,26 @@ function renderRep(fs,overall,top3s,top3g){
   var rTitle=isAR?'\u062a\u0642\u0631\u064a\u0631 '+name:name+"'s Skills Report";
   var subTxt=role?(isAR?lvl+' \u00b7 '+role:lvl+' &middot; '+role):lvl;
 
+  var arch = getArchetype(fs);
+  var archData = arch ? arch[lang==='ar'?'ar':'en'] : null;
+
   var h='<div class="rhdr">';
   h+='<div class="rname"><em>'+rTitle+'</em></div>';
   h+='<div class="rmeta">'+subTxt+' &middot; '+new Date().toLocaleDateString(isAR?'ar-EG':'en-GB')+'</div>';
-  h+='<div class="rscore">'+overall+'%</div>';
-  h+='<div class="rscl">'+(isAR?'\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a\u0629':'Overall Score')+'</div></div>';
+  // Archetype badge
+  if(archData){
+    h+='<div style="margin:16px 0;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px">';
+    h+='<span style="font-size:36px">'+archData.icon+'</span>';
+    h+='<div>';
+    h+='<div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:2px">'+(isAR?'\u0646\u0648\u0639 \u0645\u0647\u0627\u0631\u0627\u062a\u0643':'Your Skills Archetype')+'</div>';
+    h+='<div style="font-family:DM Serif Display,serif;font-size:22px;color:#10B981;margin-bottom:2px">'+archData.name+'</div>';
+    h+='<div style="font-size:12px;color:rgba(255,255,255,0.55)">'+archData.tagline+'</div>';
+    h+='<div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px">'+(isAR?'\u0645\u0633\u0627\u0631\u0627\u062a \u0645\u0646\u0627\u0633\u0628\u0629':'Natural roles')+': '+archData.roles+'</div>';
+    h+='</div></div>';
+  }
+  h+='<div style="display:flex;gap:24px;align-items:flex-end;margin-top:4px">';
+  h+='<div><div class="rscore">'+overall+'%</div><div class="rscl">'+(isAR?'\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a\u0629':'Overall Score')+'</div></div>';
+  h+='</div></div>';
 
   h+='<div class="t3g">';
   h+='<div class="t3c t3s"><div class="t3t s">'+(isAR?'&#11088; \u0646\u0642\u0627\u0637 \u0642\u0648\u062a\u0643':'&#11088; Your Strengths')+'</div>';
@@ -413,6 +483,14 @@ function renderRep(fs,overall,top3s,top3g){
     if(bk)h+='<div class="ccbook">&#128218; <div>'+(isAR?'\u0643\u062a\u0627\u0628 \u0645\u0642\u062a\u0631\u062d':'Suggested Book')+': <span class="ccbook-t">'+bk.t+'</span> &mdash; '+bk.a+'</div></div>';
     h+='</div>';
   });
+
+  // Fit signal teaser
+  var fitSignalEN = arch ? 'Based on your results, you show natural strength as <strong style="color:#10B981">'+arch.en.name+'</strong>. A Fit Check session will tell you whether your current role is playing to these strengths — or working against them.' : '';
+  var fitSignalAR = arch ? '\u0628\u0646\u0627\u0621 \u0639\u0644\u0649 \u0646\u062a\u0627\u0626\u062c\u0643\u060c \u062a\u064f\u0638\u0647\u0631\u064aن \u0642\u0648\u0629 \u0637\u0628\u064a\u0639\u064a\u0629 <strong style="color:#10B981">'+arch.ar.name+'</strong>. \u062c\u0644\u0633\u0629 \u0627\u0644\u062a\u0648\u0627\u0641\u0642 \u0633\u062a\u062e\u0628\u0631\u0643 \u0625\u0646 \u0643\u0627\u0646 \u062f\u0648\u0631\u0643 \u0627\u0644\u062d\u0627\u0644\u064a \u064a\u0633\u062a\u062b\u0645\u0631 \u0647\u0630\u0647 \u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a \u2014 \u0623\u0645 \u064a\u0639\u0645\u0644 \u0636\u062f\u0647\u0627.' : '';
+  h+='<div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:14px;padding:20px 24px;margin-bottom:20px">';
+  h+='<div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2563EB;margin-bottom:8px">&#128270; '+(isAR?'\u0625\u0634\u0627\u0631\u0629 \u0627\u0644\u062a\u0648\u0627\u0641\u0642':'Fit Signal')+'</div>';
+  h+='<p style="font-size:14px;color:#1E293B;line-height:1.7">'+(isAR?fitSignalAR:fitSignalEN)+'</p>';
+  h+='</div>';
 
   var n=encodeURIComponent(name),em=encodeURIComponent(document.getElementById('iE').value.trim());
   var gap=encodeURIComponent(top3g[0]?top3g[0][1].lbl:'core skills');
