@@ -133,6 +133,14 @@ body.rtl .ctabox h3{font-family:'Tajawal',sans-serif}
 .btn-whatsapp{background:#25D366;color:white;border:none;border-radius:12px;padding:14px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:all 0.25s}
 .btn-whatsapp:hover{background:#1ebe5d;transform:translateY(-1px)}
 </style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+<meta property="og:title" content="Career Compass &middot; Mai Hanafy">
+<meta property="og:description" content="Discover your strengths, development areas, and natural work style. Free career assessment by Mai Hanafy &mdash; 15+ years in HR across 20+ countries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maihanafy204-boop.github.io/Mai-site/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Career Compass &middot; Mai Hanafy">
+<meta name="twitter:description" content="Free career assessment. Discover where your strengths belong.">
 </head>
 <body>
 
@@ -286,6 +294,8 @@ function go2(){
 }
 
 function genRep(){
+  var btn=document.getElementById('b2n');
+  if(btn){btn.disabled=true;btn.innerHTML=lang==='ar'?'&#8987; جارٍ...':'&#8987; Loading...';}
   var qs=QD[lang];
   var ua=qs.filter(function(q){return !ans[q.id];});
   if(ua.length){
@@ -333,37 +343,37 @@ function getArchetype(fs) {
     {
       id:'analyst',
       en:{name:'The Analyst', icon:'🧠', tagline:'You see what others miss in the data', roles:'Strategy, Finance, Research, Consulting',blind:'May over-analyse and delay decisions'},
-      ar:{name:'المحلّل/ة', icon:'🧠', tagline:'ترى ما يفوت الآخرين في البيانات', roles:'الاستراتيجية، التمويل، البحث، الاستشارات',blind:'قد يُفرط في التحليل ويتأخر في القرارات'},
+      ar:{name:'المحلّل', icon:'🧠', tagline:'ترى ما يفوت الآخرين في البيانات', roles:'الاستراتيجية، التمويل، البحث، الاستشارات',blind:'قد يُفرط في التحليل ويتأخر في القرارات'},
       skills:['criticalThinking','dataLiteracy','problemSolving']
     },
     {
       id:'connector',
       en:{name:'The Connector', icon:'🤝', tagline:'You build trust and move people naturally', roles:'HR, Sales, PR, Customer Success',blind:'May avoid conflict to preserve relationships'},
-      ar:{name:'الموصّل/ة', icon:'🤝', tagline:'تبني الثقة وتحرك الناس بشكل طبيعي', roles:'الموارد البشرية، المبيعات، العلاقات العامة',blind:'قد يتجنّب الصراع للحفاظ على العلاقات'},
+      ar:{name:'صانع العلاقات', icon:'🤝', tagline:'تبني الثقة وتحرك الناس بشكل طبيعي', roles:'الموارد البشرية، المبيعات، العلاقات العامة',blind:'قد يتجنّب الصراع للحفاظ على العلاقات'},
       skills:['communication','collaboration','emotionalIntelligence']
     },
     {
       id:'builder',
       en:{name:'The Builder', icon:'⚡', tagline:'You start things and make them real', roles:'Product, Startups, Operations, Entrepreneurship',blind:'May move too fast and leave others behind'},
-      ar:{name:'البنّاء/ة', icon:'⚡', tagline:'تبدأ الأشياء وتجعلها حقيقية', roles:'المنتج، الشركات الناشئة، العمليات',blind:'قد يتحرك بسرعة مفرطة ويتخلّى عن الآخرين'},
+      ar:{name:'البنّاء', icon:'⚡', tagline:'تبدأ الأشياء وتجعلها حقيقية', roles:'المنتج، الشركات الناشئة، العمليات',blind:'قد يتحرك بسرعة مفرطة ويتخلّى عن الآخرين'},
       skills:['initiative','accountability','learningAgility']
     },
     {
       id:'navigator',
       en:{name:'The Navigator', icon:'🧭', tagline:'You stay calm and find the path when things change', roles:'Project Management, Consulting, Crisis Roles',blind:'May be slow to commit when clarity is needed'},
-      ar:{name:'الملاح/ة', icon:'🧭', tagline:'تبقى هادئًا وتجد الطريق عند التغيير', roles:'إدارة المشاريع، الاستشارات، إدارة الأزمات',blind:'قد يتأخر في الالتزام حين يحتاج الوضوح'},
+      ar:{name:'الموجّه', icon:'🧭', tagline:'تبقى هادئًا وتجد الطريق عند التغيير', roles:'إدارة المشاريع، الاستشارات، إدارة الأزمات',blind:'قد يتأخر في الالتزام حين يحتاج الوضوح'},
       skills:['adaptability','resilience','timeManagement']
     },
     {
       id:'executor',
       en:{name:'The Executor', icon:'🎯', tagline:'You get it done — reliably, every time', roles:'Operations, Finance, Engineering, Compliance',blind:'May prioritise delivery over people and relationships'},
-      ar:{name:'المنجز/ة', icon:'🎯', tagline:'تنجز — بشكل موثوق، في كل مرة', roles:'العمليات، التمويل، الهندسة',blind:'قد يُقدّم التسليم على الناس والعلاقات'},
+      ar:{name:'المنجز', icon:'🎯', tagline:'تنجز — بشكل موثوق، في كل مرة', roles:'العمليات، التمويل، الهندسة',blind:'قد يُقدّم التسليم على الناس والعلاقات'},
       skills:['accountability','timeManagement','techFluency']
     },
     {
       id:'developer',
       en:{name:'The Developer', icon:'🌱', tagline:'You grow people and earn their trust doing it', roles:'Coaching, L&D, People Management, Teaching',blind:'May neglect own growth while focusing on others'},
-      ar:{name:'المطوِّر/ة', icon:'🌱', tagline:'تنمّي الناس وتكسب ثقتهم في الوقت ذاته', roles:'التدريب، التعلم والتطوير، إدارة الأفراد',blind:'قد يهمل نموه الشخصي بينما يركّز على الآخرين'},
+      ar:{name:'المطوّر', icon:'🌱', tagline:'تنمّي الناس وتكسب ثقتهم في الوقت ذاته', roles:'التدريب، التعلم والتطوير، إدارة الأفراد',blind:'قد يهمل نموه الشخصي بينما يركّز على الآخرين'},
       skills:['emotionalIntelligence','collaboration','communication']
     }
   ];
@@ -388,7 +398,7 @@ function renderRep(fs,overall,top3s,top3g){
   var lvlAR={fresh:'\u0637\u0627\u0644\u0628 / \u062e\u0631\u064a\u062c \u062c\u062f\u064a\u062f',professional:'\u0645\u062d\u062a\u0631\u0641',experienced:'\u0645\u062d\u062a\u0631\u0641 \u0645\u062a\u0645\u0631\u0633',manager:'\u0645\u062f\u064a\u0631 / \u0642\u0627\u0626\u062f \u0641\u0631\u064a\u0642'};
   var lvl=lang==='ar'?lvlAR[xLvl]:lvlEN[xLvl];
   var isAR=lang==='ar';
-  var rTitle=isAR?'\u062a\u0642\u0631\u064a\u0631 '+name:name+"'s Career Profile";
+  var rTitle=isAR?'\u062a\u0642\u0631\u064a\u0631 '+name:name+' Career Profile';
   var subTxt=role?(isAR?lvl+' \u00b7 '+role:lvl+' &middot; '+role):lvl;
 
   var arch = getArchetype(fs);
@@ -418,8 +428,8 @@ function renderRep(fs,overall,top3s,top3g){
   var trueGaps   = top3g.filter(function(p){ return p[1].p < 72; });
   var showGaps   = noRealGaps ? top3g : (trueGaps.length ? trueGaps : top3g);
   var gapTitle   = noRealGaps
-    ? (isAR ? '&#10024; \u0645\u0647\u0627\u0631\u0627\u062a \u0623\u0642\u0644 \u0647\u064a\u0645\u0646\u0629' : '&#10024; Comparatively Lower Strengths')
-    : (isAR ? '&#127919; \u0623\u0648\u0644\u0648\u064a\u0627\u062a \u0627\u0644\u062a\u0637\u0648\u064a\u0631' : '&#127919; To Develop');
+    ? (isAR ? '&#10024; \u0645\u0647\u0627\u0631\u0627\u062a \u0623\u0642\u0644 \u0647\u064a\u0645\u0646\u0629' : '&#11088; Relatively Lower Strengths')
+    : (isAR ? '&#127919; \u0623\u0648\u0644\u0648\u064a\u0627\u062a \u0627\u0644\u062a\u0637\u0648\u064a\u0631' : '&#128270; Areas of Importance');
   var gapNote    = noRealGaps
     ? (isAR ? '\u0644\u064a\u0633\u062a \u0636\u0639\u0641\u064b\u0627 \u2014 \u0641\u0642\u0637 \u0623\u0642\u0644 \u0647\u064a\u0645\u0646\u0629 \u0645\u0646 \u0645\u0647\u0627\u0631\u0627\u062a\u0643 \u0627\u0644\u0639\u0644\u064a\u0627.'
              : 'Not weaknesses \u2014 just relatively less dominant than your top skills.')
@@ -432,12 +442,12 @@ function renderRep(fs,overall,top3s,top3g){
   h+='<div class="t3c t3d"><div class="t3t g">'+gapTitle+'</div>';
   if(gapNote) h+='<div style="font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:8px;font-style:italic">'+gapNote+'</div>';
   showGaps.forEach(function(p){
-    var col = noRealGaps ? '#93C5FD' : '#FCA5A5';
+    var col = noRealGaps ? '#60A5FA' : '#3B82F6';
     var ico = noRealGaps ? '&#11088;' : '&#127919;';
     h+='<div class="t3i" style="color:'+col+'"><span>'+ico+'</span>'+p[1].lbl+' &mdash; '+p[1].level.l[lang]+'</div>';
   });
   h+='</div></div>';
-  h+='<div style="margin-bottom:10px;font-size:11px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:1px">'+(isAR?'\u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a':'All Skills &mdash; Gaps First')+'</div>';
+  h+='<div style="margin-bottom:10px;font-size:11px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:1px">'+(isAR?'\u062a\u0641\u0627\u0635\u064a\u0644 \u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a':'Your Full Career Profile')+'</div>';
 
   Object.keys(fs).sort(function(a,b){return fs[a].p-fs[b].p;}).forEach(function(c){
     var d=fs[c],lv=d.level;
@@ -498,7 +508,7 @@ function renderRep(fs,overall,top3s,top3g){
     h += '</div></div>';
     h += '<p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:16px">' + (isAR ? l2BodyAR : l2BodyEN) + '</p>';
     h += '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">';
-    h += '<a href="https://wa.me/201204550555?text=Hi%20Mai%2C%20I%20completed%20the%20Level%201%20Skills%20Assessment%20and%20scored%20' + overall + '%25.%20I%27d%20like%20to%20request%20access%20to%20the%20Advanced%20Leadership%20Assessment." target="_blank" style="background:#25D366;color:white;border-radius:10px;padding:11px 22px;font-size:13px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px">&#128172; ' + (isAR ? 'طلب الوصول عبر واتساب' : 'Request Access via WhatsApp') + '</a>';
+    h += '<a href="https://wa.me/201204550555?text=Hi%20Mai%2C%20I%20completed%20the%20Level%201%20Skills%20Assessment%20and%20scored%20' + overall + '%25.%20I%27d%20like%20to%20request%20access%20to%20the%20Advanced%20Leadership%20Assessment." target="_blank" rel="noopener noreferrer" style="background:#25D366;color:white;border-radius:10px;padding:11px 22px;font-size:13px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px">&#128172; ' + (isAR ? 'طلب الوصول عبر واتساب' : 'Request Access via WhatsApp') + '</a>';
     h += '<span style="font-size:11px;color:rgba(255,255,255,0.35)">' + (isAR ? l2NoteAR : l2NoteEN) + '</span>';
     h += '</div></div>';
   }
@@ -507,12 +517,13 @@ function renderRep(fs,overall,top3s,top3g){
   var gap=encodeURIComponent(top3g[0]?top3g[0][1].lbl:'core skills');
   h+='<p style="font-size:11px;color:var(--g400);text-align:center;margin-bottom:16px">'+(isAR?'هذا التقييم لأغراض الوعي الذاتي فقط.':'This assessment is for self-awareness and reflection only. It does not constitute professional career advice.')+'</p>';
   h+='<div class="ctabox">';
-  h+='<h3>'+(isAR?'\u0645\u0633\u062a\u0639\u062f\u0629 \u0644\u0644\u062a\u0639\u0645\u0642 \u0623\u0643\u062b\u0631\u061f':'Ready to turn this into action?')+'</h3>';
-  h+='<p>'+(isAR?'\u0627\u062d\u062c\u0632\u064a \u062c\u0644\u0633\u0629 \u0645\u062c\u0627\u0646\u064a\u0629 30 \u062f\u0642\u064a\u0642\u0629 \u0644\u0645\u0646\u0627\u0642\u0634\u0629 \u0646\u062a\u0627\u0626\u062c\u0643 \u0648\u0628\u0646\u0627\u0621 \u062e\u0637\u0629 \u062a\u0637\u0648\u064a\u0631\u0643.':'Book a Fit Check session to discuss your results and build your development plan.')+'</p>';
+  h+='<h3>'+(isAR?'\u0645\u0633\u062a\u0639\u062f\u0629 \u0644\u0644\u062a\u0639\u0645\u0642 \u0623\u0643\u062b\u0631\u061f':'Want help turning this insight into action?')+'</h3>';
+  h+='<p>'+(isAR?'\u0627\u062d\u062c\u0632\u064a \u062c\u0644\u0633\u0629 \u0645\u062c\u0627\u0646\u064a\u0629 30 \u062f\u0642\u064a\u0642\u0629 \u0644\u0645\u0646\u0627\u0642\u0634\u0629 \u0646\u062a\u0627\u0626\u062c\u0643 \u0648\u0628\u0646\u0627\u0621 \u062e\u0637\u0629 \u062a\u0637\u0648\u064a\u0631\u0643.':'Your results give you a clear starting point. If you would like personalised guidance, you can explore the next step with Mai.')+'</p>';
   h+='<div class="ctabtns">';
+  h+='<p style="font-size:12px;color:rgba(255,255,255,0.35);margin:12px 0 4px">Your results are yours to keep.</p>';
   h+='<button class="btn-gold" onclick="window.print()">'+(isAR?'&#11015;&#65039; \u062a\u062d\u0645\u064a\u0644 \u0627\u0644\u062a\u0642\u0631\u064a\u0631':'&#11015;&#65039; Download Report')+'</button>';
-  h+='<a href="https://calendly.com/maihanafy204/30min" target="_blank" class="btn-grn">'+(isAR?'&#128197; \u0627\u062d\u062c\u0632\u064a \u0645\u0643\u0627\u0644\u0645\u0629':'&#128197; Book a Fit Check')+'</a>';
-  h+='<a href="https://wa.me/201204550555" target="_blank" class="btn-whatsapp">'+(isAR?'&#128172; \u0648\u0627\u062a\u0633\u0627\u0628 \u0645\u064a':'&#128172; WhatsApp Mai')+'</a>';
+  h+='<a href="https://calendly.com/maihanafy204/30min" target="_blank" rel="noopener noreferrer" class="btn-grn">'+(isAR?'&#128197; \u0627\u062d\u062c\u0632\u064a \u0645\u0643\u0627\u0644\u0645\u0629':'&#128197; Explore a Fit Check \u2192')+'</a>';
+  h+='<a href="https://wa.me/201204550555" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">'+(isAR?'&#128172; \u0648\u0627\u062a\u0633\u0627\u0628 \u0645\u064a':'&#128172; WhatsApp Mai')+'</a>';
   h+='<a href="index.html" style="background:white;border:1.5px solid var(--g200);border-radius:12px;padding:13px 24px;font-size:14px;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:8px">'+(isAR?'&#127968; \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629':'&#127968; Back to Home')+'</a>';
   h+='</div></div>';
 
@@ -522,10 +533,11 @@ function renderRep(fs,overall,top3s,top3g){
 function submitS(fs,overall,top3s,top3g){
   var sc={};Object.keys(fs).forEach(function(c){sc[c]=fs[c].p;});
   fetch(SHEETS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+    assessmentLevel:'Level1',
     name:document.getElementById('iN').value.trim(),
     email:document.getElementById('iE').value.trim(),
     role:document.getElementById('iR').value.trim(),
-    level:xLvl,language:lang,scores:sc,overallScore:overall,
+    experienceLevel:xLvl,language:lang,scores:sc,overallScore:overall,
     top3Strengths:top3s.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | '),
     top3Gaps:top3g.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | ')
   })}).catch(function(){});
@@ -597,6 +609,17 @@ function toggleLang(){
   });
   // Re-render questions if on step 2
   if(cur()===2)renderQs();
+  // Update experience card labels on language switch
+  var expData=[
+    ['el1',isAR?'طالب / خريج جديد':'Student / Fresh Graduate','es1',isAR?'0–2 سنوات':'0–2 years'],
+    ['el2',isAR?'محترف':'Professional','es2',isAR?'2–5 سنوات':'2–5 years'],
+    ['el3',isAR?'محترف متميز':'Experienced Professional','es3',isAR?'5+ سنوات':'5+ years'],
+    ['el4',isAR?'مدير / قائد فريق':'Manager / Team Lead','es4',isAR?'أي مستوى':'Any level']
+  ];
+  expData.forEach(function(e){
+    var l=document.getElementById(e[0]);if(l)l.textContent=e[1];
+    var s=document.getElementById(e[2]);if(s)s.textContent=e[3];
+  });
   up();
 }
 
