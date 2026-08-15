@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Leadership Assessment · Career Compass · Mai Hanafy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0D1B2E;--blue:#2563EB;--em:#10B981;--em2:#34D399;--purple:#8B5CF6;--g50:#F8FAFC;--g100:#F1F5F9;--g200:#E2E8F0;--g400:#94A3B8;--g600:#475569}
+body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--navy);line-height:1.6;min-height:100vh}
+body.rtl{direction:rtl;font-family:'Tajawal',sans-serif}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,27,46,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,92,246,0.2);padding:0 20px}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
+.nav-logo{font-size:15px;font-weight:700;color:white;text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo span{color:var(--purple)}
+.level-badge{background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:#C4B5FD;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.lang-btn{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.nav-home{color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none}
+.nav-home:hover{color:white}
+.hero{background:var(--navy);padding:90px 20px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.04) 1px,transparent 1px);background-size:50px 50px}
+.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.25);color:#C4B5FD;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,0.4)}50%{box-shadow:0 0 0 8px rgba(139,92,246,0)}}
+.hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(26px,5vw,44px);font-weight:800;color:white;line-height:1.1;margin-bottom:10px}
+body.rtl .hero-h1{font-family:'Tajawal',sans-serif;line-height:1.3}
+.hero-h1 em{color:#C4B5FD;font-style:italic}
+body.rtl .hero-h1 em{font-style:normal}
+.hero-sub{color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;max-width:480px;margin:0 auto}
+.prog-sec{background:white;border-bottom:1px solid var(--g200);padding:12px 20px;position:sticky;top:60px;z-index:50;display:none}
+.prog-inner{max-width:720px;margin:0 auto}
+.prog-steps{display:flex;align-items:center;margin-bottom:8px}
+.ps{display:flex;align-items:center;gap:5px;flex:1}
+.psn{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;transition:all 0.3s}
+.psn.done{background:var(--purple);color:white}
+.psn.act{background:var(--blue);color:white}
+.psn.pend{background:var(--g200);color:var(--g400)}
+.psl{font-size:10px;font-weight:600;color:var(--g400)}
+.psl.act{color:var(--blue)}.psl.done{color:var(--purple)}
+.psline{flex:1;height:2px;background:var(--g200);margin:0 3px;transition:background 0.3s}
+.psline.done{background:var(--purple)}
+.pbg{height:4px;background:var(--g100);border-radius:2px;overflow:hidden}
+.pfill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:2px;transition:width 0.5s ease}
+.ptxt{font-size:11px;color:var(--g400);margin-top:4px;text-align:right}
+body.rtl .ptxt{text-align:left}
+.main{max-width:720px;margin:0 auto;padding:28px 20px 80px}
+.card{background:white;border:1.5px solid var(--g200);border-radius:18px;padding:28px;margin-bottom:16px}
+.card-title{font-family:'DM Serif Display',serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px}
+body.rtl .card-title{font-family:'Tajawal',sans-serif}
+.card-sub{font-size:13px;color:var(--g600);margin-bottom:20px;line-height:1.6}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{margin-bottom:12px}
+.flbl{display:block;font-size:10px;font-weight:700;color:var(--g600);letter-spacing:0.5px;margin-bottom:5px;text-transform:uppercase}
+.fi{width:100%;background:var(--g50);border:1.5px solid var(--g200);border-radius:10px;padding:11px 14px;font-size:14px;color:var(--navy);font-family:inherit;outline:none;transition:all 0.2s}
+.fi:focus{border-color:var(--blue);background:white}
+.fi::placeholder{color:var(--g400)}
+.sechdr{background:var(--navy);border-radius:14px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sechdr-t{font-size:15px;font-weight:800;color:white}
+.sechdr-s{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px}
+.qb{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--g100)}
+.qb:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.qn{font-size:11px;font-weight:700;color:var(--g400);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.qctx{font-size:12px;color:var(--g400);font-style:italic;margin-bottom:8px;line-height:1.5;padding:8px 12px;background:var(--g50);border-radius:8px;border-left:3px solid var(--g200)}
+body.rtl .qctx{border-left:none;border-right:3px solid var(--g200)}
+.qt{font-size:15px;font-weight:600;color:var(--navy);line-height:1.5;margin-bottom:12px}
+.qopts{display:flex;flex-direction:column;gap:7px}
+.qopt{background:var(--g50);border:1.5px solid var(--g200);border-radius:10px;padding:11px 14px;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:10px}
+.qopt:hover,.qopt.sel{border-color:var(--blue);background:#EFF6FF}
+.qr{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--g400);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all 0.2s}
+.qopt.sel .qr{background:var(--blue);border-color:var(--blue)}
+.qd{width:7px;height:7px;border-radius:50%;background:white;opacity:0;transition:opacity 0.2s}
+.qopt.sel .qd{opacity:1}
+.qt-txt{font-size:13px;color:var(--g600);line-height:1.5}
+.qopt.sel .qt-txt{color:var(--navy);font-weight:500}
+.qopt.opt-unsure{border-style:dashed}
+.qopt.opt-unsure .qt-txt{color:var(--g400);font-style:italic}
+.btn-p{background:linear-gradient(135deg,var(--blue),#1D4ED8);color:white;border:none;border-radius:12px;padding:13px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.25s;box-shadow:0 4px 16px rgba(37,99,235,0.25);display:inline-flex;align-items:center;gap:8px}
+.btn-p:hover{transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--g600);border:1.5px solid var(--g200);border-radius:12px;padding:13px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+.navbtns{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--g100)}
+.warn{background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#991B1B;display:none;align-items:center;gap:8px}
+.warn.show{display:flex}
+/* Report */
+.rhdr{background:linear-gradient(135deg,var(--navy),#1E1040);border-radius:18px;padding:26px;margin-bottom:18px;color:white}
+.rname{font-family:'DM Serif Display',serif;font-size:clamp(20px,4vw,30px);font-weight:800;margin-bottom:4px}
+body.rtl .rname{font-family:'Tajawal',sans-serif}
+.rname em{color:#C4B5FD;font-style:italic}
+.rmeta{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px}
+.rscore{font-family:'DM Serif Display',serif;font-size:52px;font-weight:800;color:#C4B5FD;line-height:1}
+.rscl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px}
+.t3g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.t3c{border-radius:12px;padding:16px}
+.t3s{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1.5px solid #A7F3D0}
+.t3d{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1.5px solid #C4B5FD}
+.t3t{font-size:12px;font-weight:800;margin-bottom:9px}
+.t3t.s{color:#065F46}.t3t.g{color:#5B21B6}
+.t3i{display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:12px;font-weight:600}
+.t3i:last-child{border-bottom:none}
+.t3i.s{color:#065F46}.t3i.g{color:#5B21B6}
+.cc{background:white;border:1.5px solid var(--g200);border-radius:14px;padding:18px;margin-bottom:10px}
+.cchdr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+body.rtl .cchdr{flex-direction:row-reverse}
+.ccicon{font-size:20px}
+.ccname{font-size:14px;font-weight:700;color:var(--navy);flex:1}
+.ccbadge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.ccpct{font-size:12px;font-weight:700;color:var(--g600);margin-bottom:6px}
+.ccbar{height:7px;background:var(--g100);border-radius:4px;overflow:hidden;margin-bottom:8px}
+.ccfill{height:100%;border-radius:4px;transition:width 1.2s ease}
+.ccpara{font-size:12px;color:var(--g600);line-height:1.65;margin-bottom:8px}
+.ccbook{background:var(--g50);border-radius:8px;padding:9px 12px;border-left:3px solid var(--purple);font-size:12px;display:flex;gap:8px;align-items:center}
+body.rtl .ccbook{border-left:none;border-right:3px solid var(--purple)}
+.ccbook-t{font-weight:700;color:var(--navy)}
+.ctabox{background:var(--navy);border-radius:18px;padding:24px;text-align:center;margin-top:22px}
+.ctabox h3{font-family:'DM Serif Display',serif;font-size:20px;font-weight:800;color:white;margin-bottom:7px}
+body.rtl .ctabox h3{font-family:'Tajawal',sans-serif}
+.ctabox p{color:rgba(255,255,255,0.55);font-size:13px;line-height:1.6;margin-bottom:16px}
+.ctabtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-purple{background:linear-gradient(135deg,var(--purple),#7C3AED);color:white;border:none;border-radius:12px;padding:13px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-grn{background:linear-gradient(135deg,var(--em),#059669);color:white;border:none;border-radius:12px;padding:13px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-wa{background:#25D366;color:white;border:none;border-radius:12px;padding:13px 24px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.spin{width:40px;height:40px;border-radius:50%;border:3px solid var(--g200);border-top-color:var(--purple);animation:sp 0.8s linear infinite;margin:0 auto 14px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media print{.nav,.prog-sec,.navbtns,.ctabox{display:none!important}.main{padding:0}}
+@media(max-width:600px){.frow{grid-template-columns:1fr}.t3g{grid-template-columns:1fr}.ctabtns{flex-direction:column;align-items:center}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      Career Compass <span>&#183;</span> <span>Mai Hanafy</span>
+      <span class="level-badge">Level 2</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-home" id="homeLink">&#8592; Home</a>
+      <a href="assessment.html" class="nav-home" id="l1Link">Level 1</a>
+      <button class="lang-btn" id="langBtn">&#x1F1F8;&#x1F1E6; AR</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><div class="hero-dot"></div><span id="heroTag">Advanced Leadership Assessment</span></div>
+    <h1 class="hero-h1" id="heroH1">How strong is your <em>leadership?</em></h1>
+    <p class="hero-sub" id="heroSub">18 senior-level scenarios across 9 leadership skills. Designed for professionals with 5+ years experience. Takes about 15 minutes.</p>
+  </div>
+</div>
+
+<div class="prog-sec" id="progSec">
+  <div class="prog-inner">
+    <div class="prog-steps">
+      <div class="ps"><div class="psn act" id="sn1">1</div><span class="psl act" id="sl1">Profile</span></div>
+      <div class="psline" id="ll1"></div>
+      <div class="ps"><div class="psn pend" id="sn2">2</div><span class="psl pend" id="sl2">Assessment</span></div>
+      <div class="psline" id="ll2"></div>
+      <div class="ps"><div class="psn pend" id="sn3">&#128202;</div><span class="psl pend" id="sl3">Report</span></div>
+    </div>
+    <div class="pbg"><div class="pfill" id="pf" style="width:0%"></div></div>
+    <div class="ptxt" id="pt">0% complete</div>
+  </div>
+</div>
+
+<div class="main">
+  <div id="s1">
+    <div class="card">
+      <div class="card-title" id="s1t">Tell us about you</div>
+      <div class="card-sub" id="s1s">This assessment is designed for professionals with 5+ years of experience. Your answers help us calibrate your report.</div>
+      <div class="frow">
+        <div class="fg"><label class="flbl" id="lbN">Name</label><input class="fi" id="iN" placeholder="e.g. Sara"></div>
+        <div class="fg"><label class="flbl" id="lbE">Email</label><input class="fi" id="iE" placeholder="sara@email.com" type="email"></div>
+      </div>
+      <div class="fg"><label class="flbl" id="lbR">Current Role</label><input class="fi" id="iR" placeholder="e.g. HR Director, Operations Manager"></div>
+      <div class="fg" style="margin-bottom:0"><label class="flbl" id="lbY">Years of Experience</label>
+        <select class="fi" id="iY">
+          <option value="">Select...</option>
+          <option value="<5">&lt;5 years (strong professional)</option>
+          <option value="5-8">5&#8211;8 years</option>
+          <option value="8-12">8&#8211;12 years</option>
+          <option value="12-20">12&#8211;20 years</option>
+          <option value="20+">20+ years</option>
+        </select>
+      </div>
+    </div>
+    <div class="warn" id="w1">&#9888; <span id="w1t">Please fill in your name, email, and years of experience.</span></div>
+    <div style="display:flex;justify-content:flex-end"><button class="btn-p" id="b1">Start Assessment &#8594;</button></div>
+  </div>
+
+  <div id="s2" style="display:none">
+    <div class="sechdr"><span style="font-size:24px">&#9820;&#65039;</span><div><div class="sechdr-t" id="s2t">Advanced Leadership Assessment</div><div class="sechdr-s" id="s2s">18 scenarios &#183; Pick the option that sounds most like you &#8212; honestly</div></div></div>
+    <div class="card" id="qCard"></div>
+    <div class="warn" id="w2">&#9888; <span id="w2t">Please answer all questions to see your results.</span></div>
+    <div class="navbtns"><button class="btn-g" id="b2b">&#8592; Back</button><button class="btn-p" id="b2n">See My Results &#8594;</button></div>
+  </div>
+
+  <div id="s3" style="display:none"><div id="repDiv"></div></div>
+</div>
+
+<script id="q-data" type="application/json">
+{"en": [{"id": "s1", "c": "strategicThinking", "ctx": "Think about a time when there was more work than your team could handle.", "txt": "Your team already has five priorities this quarter. Leadership just added two more. Resources have not changed. What do you do?", "opts": ["Sit down with the team, rank everything by impact, and propose what to deprioritise with clear reasoning", "Try to fit everything in and work harder", "Flag the concern to my manager and wait for guidance", "Map each priority against business outcomes, build the case for what drops, present trade-offs to leadership, and get explicit sign-off before reallocating effort", "I honestly don't know what I'd do here"], "scores": [3, 1, 2, 4, 1]}, {"id": "s2", "c": "strategicThinking", "ctx": "Being strategic means spotting important patterns — even when nobody asked you to look.", "txt": "You notice a trend in your team's data that suggests your department should be working differently — but nobody has asked you to look at this. What do you do?", "opts": ["Analyse it properly, build a clear point of view on the implication, and present it as a business case to the right people", "Document the trend and bring it to my manager with a summary of what it might mean", "Focus on my current work — it's not my remit", "Mention it informally to a colleague", "I honestly don't know what I'd do here"], "scores": [4, 3, 1, 2, 1]}, {"id": "i1", "c": "influence", "ctx": "Most important work depends on people you cannot tell what to do.", "txt": "You need something critical from another team but they keep pushing it down their list. You have no authority over them. What do you do?", "opts": ["Find out what their priorities are and reframe my request around what matters to them", "Understand their constraints, connect my need to their goals, involve their manager only if needed, and build the relationship so this doesn't repeat", "Keep chasing and hope it moves up their list", "Escalate to my manager to handle", "I honestly don't know what I'd do here"], "scores": [3, 4, 1, 2, 1]}, {"id": "i2", "c": "influence", "ctx": "When a senior person keeps changing direction, it costs your team time and energy.", "txt": "A senior stakeholder keeps changing the direction of a project you are leading. It is causing extra work and frustrating your team. What do you do?", "opts": ["Complain to my team but keep going", "Absorb the changes and keep adjusting — they're senior", "Have a direct conversation about the impact and ask for clearer direction upfront", "Document the pattern, quantify the cost of the changes, set up a structured check-in process, and align on a decision-making protocol that protects the team", "I honestly don't know what I'd do here"], "scores": [2, 1, 3, 4, 1]}, {"id": "l1", "c": "leadership", "ctx": "One of the most important things a leader does is help people grow — even when it is uncomfortable.", "txt": "A high-potential person on your team is struggling in a new bigger role. They are trying hard but not delivering. What do you do?", "opts": ["Have an honest conversation to understand what's blocking them and offer support", "Take some of the work back to protect the outcome", "Give them more time — they'll figure it out", "Diagnose whether it's a skill, confidence, or clarity gap, co-create a development plan, give structured feedback regularly, and protect their confidence while raising the bar", "I honestly don't know what I'd do here"], "scores": [3, 2, 1, 4, 1]}, {"id": "l2", "c": "leadership", "ctx": "How you lead when your team is exhausted says more than how you lead when things are easy.", "txt": "Your team is burnt out after a long tough period. Energy is low. You still have a full quarter ahead. What do you do?", "opts": ["Acknowledge it and push through — the work has to get done", "Adjust the workload where possible, check in individually, and be honest about what's ahead", "Address it structurally — audit workload, protect recovery time, celebrate what was achieved, be transparent about the road ahead, and go to bat for the team if needed", "Give the team a pep talk and hope energy picks up", "I honestly don't know what I'd do here"], "scores": [1, 3, 4, 2, 1]}, {"id": "d1", "c": "decisionMaking", "ctx": "At senior levels you rarely have all the information you want. The skill is deciding well anyway.", "txt": "You need to make an important decision by end of week. You have about 60% of the information you would ideally want. What do you do?", "opts": ["Identify the most critical missing data, get what I can in the time available, then decide with documented assumptions", "Define what's knowable vs unknowable, make the best call with what I have, document the reasoning and risk, set a review trigger, and communicate the decision clearly", "Wait — I need more information before deciding", "Make the most comfortable call and revisit if it goes wrong", "I honestly don't know what I'd do here"], "scores": [3, 4, 1, 2, 1]}, {"id": "d2", "c": "decisionMaking", "ctx": "Good judgment includes knowing when to change course — and being honest about it.", "txt": "Three months after you pushed for and launched a big change, clear evidence shows it is not working as planned. What do you do?", "opts": ["Stay the course — it takes time and I don't want to look indecisive", "Own it completely, present a clear analysis of what went wrong and why, propose a revised path, and use it as a learning moment for the team", "Acknowledge it openly, bring the evidence to leadership, and recommend a course correction", "Quietly adjust the approach without drawing attention to it", "I honestly don't know what I'd do here"], "scores": [1, 4, 3, 2, 1]}, {"id": "e1", "c": "execComm", "ctx": "Senior leaders have very little time. You need to get to the point fast.", "txt": "You have 5 minutes with the CEO to get sign-off on a project you have been working on for months. How do you approach it?", "opts": ["Focus on the parts I'm most excited about", "Open with the decision needed and why it matters now, give the business case in 3 points, anticipate objections, and close with a clear next step", "Lead with the ask, give the key context, and prepare for their likely questions", "Walk through the full background so they have context", "I honestly don't know what I'd do here"], "scores": [2, 4, 3, 1, 1]}, {"id": "e2", "c": "execComm", "ctx": "Telling people above you about a problem early is one of the most avoided — and most important — leadership skills.", "txt": "A project is going to miss a key deadline. Senior leaders are expecting it on time. What do you do?", "opts": ["Wait until it's unavoidable and then explain what happened", "Tell the relevant stakeholders early, explain what happened, and give a revised timeline", "Send a brief message flagging the delay", "Get ahead of it immediately, own it clearly, explain the root cause and impact, present a revised plan with mitigations, and propose what changes to prevent recurrence", "I honestly don't know what I'd do here"], "scores": [1, 3, 2, 4, 1]}, {"id": "ch1", "c": "changeAdaptability", "ctx": "Leading change means bringing people with you — not just announcing what is happening.", "txt": "You are leading an important process change but your team is openly pushing back. The change needs to happen. What do you do?", "opts": ["Hold sessions to explain the why, listen to concerns, and address what I can", "Separate valid concerns from resistance to change, address the former, involve key sceptics in shaping the implementation, and build early wins to shift momentum", "Scale back the change to reduce friction", "Push it through — resistance is normal and they'll adjust", "I honestly don't know what I'd do here"], "scores": [3, 4, 2, 1, 1]}, {"id": "ch2", "c": "changeAdaptability", "ctx": "When things are uncertain, your team looks to you. How you show up sets the tone.", "txt": "Your company announces a big restructure. Your team is anxious and looking to you for answers — but you do not have them yet. What do you do?", "opts": ["Be honest about what I know and don't know, and stay visible and available", "Reassure the team that everything will be fine", "Wait until I have answers before saying anything", "Communicate proactively with what I know, name the uncertainty without amplifying it, give the team a clear focus for now, and follow up as information comes in", "I honestly don't know what I'd do here"], "scores": [3, 2, 1, 4, 1]}, {"id": "b1", "c": "businessAcumen", "ctx": "To get resources approved, you need to speak the language of business — not just explain the need.", "txt": "You want to hire two more people for your team. Budget is tight. How do you make the case?", "opts": ["Build a case showing current capacity gaps, what's at risk, and what becomes possible with additional resource", "Quantify the cost of not hiring versus the cost of hiring, tie the ask to specific business outcomes, show the ROI, and present it in the language the decision-maker cares about", "Show what the team can't do right now and ask for headcount", "Explain that the team is stretched and needs support", "I honestly don't know what I'd do here"], "scores": [3, 4, 2, 1, 1]}, {"id": "b2", "c": "businessAcumen", "ctx": "The best leaders focus their team on what actually moves the business forward.", "txt": "You are setting your team's priorities for next quarter. How do you decide what to focus on?", "opts": ["Align priorities with the goals my manager has set and filter from there", "Prioritise based on what the team finds most valuable", "Continue what's been working and add what leadership has asked for", "Map team activities against business outcomes, identify what moves the needle most, cut what doesn't connect, and build a clear case for the priorities I'm recommending", "I honestly don't know what I'd do here"], "scores": [3, 2, 1, 4, 1]}, {"id": "r1", "c": "resilience", "ctx": "Leadership resilience is not just about handling your own pressure — it is about still showing up well for your team.", "txt": "You are going through a personally difficult period — high stress, setbacks, uncertainty. You still need to lead your team. What does your approach look like?", "opts": ["Actively manage my own state, be appropriately transparent with my team without burdening them, protect what matters most, and know when to ask for support", "Manage my energy consciously and be selective about what I absorb", "Push through and keep it professional — don't let it show", "Do my best but accept that my leadership will take a hit", "I honestly don't know what I'd do here"], "scores": [4, 3, 1, 2, 1]}, {"id": "r2", "c": "resilience", "ctx": "Stress spreads through a team fast. So does calm. Which one you bring matters.", "txt": "Your team is clearly stressed and you can see performance starting to dip. What do you do?", "opts": ["Give people a break where possible and hope things settle", "Name the pressure and remind the team to push through — the deadline is real", "Check in individually, adjust workload where I can, and be honest about the situation", "Treat it as a systemic issue — identify root causes, protect recovery time, address what's in my control, escalate what isn't, and model the behaviour I want to see", "I honestly don't know what I'd do here"], "scores": [2, 1, 3, 4, 1]}, {"id": "cp1", "c": "careerPositioning", "ctx": "At senior levels, being good at your job is not enough on its own. How you are seen and positioned matters.", "txt": "A role you really want opens up internally. You think you are the strongest candidate. What do you do?", "opts": ["Position myself proactively before the role is posted, build support with key decision-makers, prepare a compelling case for my readiness, and enter the process with clarity on what I bring", "Have a clear conversation about my interest, make the case for why I'm ready, and ask what I need to demonstrate", "Apply and let my track record speak for itself", "Tell my manager I'm interested and ask for their support", "I honestly don't know what I'd do here"], "scores": [4, 3, 1, 2, 1]}, {"id": "cp2", "c": "careerPositioning", "ctx": "Most people manage their career by reacting to what happens. The best professionals plan it like a strategy.", "txt": "Thinking about your career over the next 3 years — how intentional are you about where you are headed?", "opts": ["I have a clear direction and I'm actively working towards it with some structure", "I have a general idea of where I want to go but haven't planned it out", "I have a specific vision, a plan, I'm building the right relationships and skills, and I review and adjust it regularly", "I focus on doing well in my current role and see what comes", "I honestly don't know what I'd do here"], "scores": [3, 2, 4, 1, 1]}], "ar": [{"id": "s1", "c": "strategicThinking", "ctx": "الاستراتيجية تعني اختيار ما لا تفعله بقدر ما تفعله.", "txt": "لدى فريقك خمسة أولويات هذا الربع. أضافت القيادة العليا اثنتين أخريين. الموارد لم تتغير. ماذا تفعلين؟", "opts": ["أجلس مع الفريق، أرتّب الأولويات حسب الأثر، وأقترح ما يُستبعد مع تبرير واضح", "أُبلّغ مديري بالقلق وأنتظر التوجيه", "أحاول استيعاب كل شيء وأعمل بجهد أكبر", "أربط كل أولوية بنتائج الأعمال، أبني الحجة لما يُستبعد، أعرض المقايضات على القيادة، وأحصل على موافقة صريحة قبل إعادة توزيع الجهد", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 2, 1, 4, 1]}, {"id": "s2", "c": "strategicThinking", "ctx": "أن تكون استراتيجيًا يعني رؤية الأنماط التي يفوتها الآخرون وربط عمل اليوم بنتائج الغد.", "txt": "تلاحظين اتجاهًا في بيانات فريقك يشير إلى تحول كبير في كيفية عمل قسمك — لكن لم يطلب منك أحد النظر في ذلك. ماذا تفعلين؟", "opts": ["أوثّق الاتجاه وأعرضه على مديري مع ملخص لما قد يعنيه", "أذكره بشكل غير رسمي لزميل", "أحلله بشكل صحيح، أبني وجهة نظر واضحة حول تداعياته، وأقدمه كحجة أعمال للأشخاص المناسبين", "أركز على عملي الحالي — ليس من اختصاصي", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 2, 4, 1, 1]}, {"id": "i1", "c": "influence", "ctx": "معظم العمل الحقيقي يتم عبر أشخاص ليس لديك سلطة عليهم.", "txt": "تحتاجين مخرجًا حيويًا من قسم آخر لكنهم يؤجلون طلبك باستمرار. ليس لديك سلطة عليهم. ماذا تفعلين؟", "opts": ["أفهم قيودهم، أربط حاجتي بأهدافهم، أُشرك مديرهم عند الضرورة فقط، وأبني العلاقة حتى لا يتكرر هذا", "أكتشف أولوياتهم وأعيد صياغة طلبي حول ما يهمهم", "أُصعّد الأمر لمديري للتعامل معه", "أستمر في المتابعة وآمل أن يتقدم في قائمتهم", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [4, 3, 2, 1, 1]}, {"id": "i2", "c": "influence", "ctx": "أصحاب المصلحة الكبار لديهم انتباه محدود. كيف تديرينهم يحدد مقدار الدعم الذي تحصلين عليه.", "txt": "صاحب مصلحة كبير يغير الاتجاه باستمرار في مشروع تقودينه، مما يسبب إعادة عمل وإحباطًا للفريق. ماذا تفعلين؟", "opts": ["أستوعب التغييرات وأستمر في التكيف — إنه كبير", "أوثّق النمط، أُقدّر تكلفة التغييرات، أُنشئ آلية تسجيل منظمة، وأتوافق على بروتوكول اتخاذ القرار يحمي الفريق", "أُجري محادثة مباشرة حول الأثر وأطلب توجيهًا أوضح مسبقًا", "أشكو لفريقي لكن أستمر", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [1, 4, 3, 2, 1]}, {"id": "l1", "c": "leadership", "ctx": "تطوير الآخرين هو أحد أعلى الروافع التي يمكن للقائد استخدامها — وأكثرها إهمالًا.", "txt": "عضو ذو إمكانيات عالية في فريقك يُقدّم أداءً ضعيفًا في دور تمديدي جديد. يبذل جهدًا لكنه يكافح. ماذا تفعلين؟", "opts": ["أُشخّص إن كانت الفجوة في المهارة أو الثقة أو الوضوح، أُشارك في وضع خطة تطوير، أُقدم تغذية راجعة منتظمة، وأحمي ثقته مع رفع المستوى", "أُجري محادثة صريحة لفهم ما يعيقه وأقدم الدعم", "أمنحه مزيدًا من الوقت — سيتعلم", "أستعيد بعض العمل لحماية النتيجة", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [4, 3, 1, 2, 1]}, {"id": "l2", "c": "leadership", "ctx": "القيادة تُقاس بوضوح أكبر في كيفية ظهورك عندما تصعب الأمور.", "txt": "فريقك منهك بعد فترة طويلة ومرهقة. المعنويات منخفضة. لا يزال أمامك ربع كامل. ماذا تفعلين؟", "opts": ["أعترف بذلك وأدفع للأمام — العمل يجب أن يُنجز", "أُعدّل عبء العمل حيثما أمكن، أتحقق بشكل فردي، وأكون صريحة بشأن ما هو قادم", "أُلهم الفريق وآمل أن تتحسن الطاقة", "أتعامل معه هيكليًا — أراجع عبء العمل، أحمي وقت التعافي، أحتفل بما تحقق، أكون شفافة بشأن الطريق القادم، وأدافع عن الفريق عند الحاجة", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [1, 3, 2, 4, 1]}, {"id": "d1", "c": "decisionMaking", "ctx": "في المستويات العليا، المعلومات الكاملة نادرة. القدرة على اتخاذ قرار جيد رغم ذلك هي ما يميز القادة.", "txt": "تحتاجين اتخاذ قرار مهم بنهاية الأسبوع. لديك حوالي 60% من المعلومات التي تريدينها. ماذا تفعلين؟", "opts": ["أنتظر — أحتاج مزيدًا من المعلومات قبل القرار", "أحدد البيانات المفقودة الأكثر أهمية، أحصل على ما يمكنني في الوقت المتاح، ثم أقرر مع توثيق الافتراضات", "أحدد ما يمكن معرفته مقابل ما لا يمكن، أتخذ أفضل قرار بما لدي، أوثّق المنطق والمخاطر، وأُبلّغ القرار بوضوح", "أتخذ الخيار الأكثر راحةً وأراجع إن سار بشكل خاطئ", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [1, 3, 4, 2, 1]}, {"id": "d2", "c": "decisionMaking", "ctx": "الحكم الجيد يعني معرفة متى تعكسين قرارًا — وامتلاك الشجاعة للقيام بذلك.", "txt": "بعد ثلاثة أشهر من تنفيذ تغيير كبير دافعتِ عنه، تُظهر أدلة واضحة أنه لا يعمل كما هو متوقع. ماذا تفعلين؟", "opts": ["أُعدّل النهج بهدوء دون لفت الانتباه", "أعترف بذلك علنًا، أُقدم الأدلة للقيادة، وأوصي بتصحيح المسار", "أتحمل المسؤولية كاملةً، أُقدم تحليلًا واضحًا لما حدث ولماذا، أقترح مسارًا معدّلًا، وأستخدمه كلحظة تعلم للفريق", "أستمر — يحتاج وقتًا ولا أريد أن أبدو غير حاسمة", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [2, 3, 4, 1, 1]}, {"id": "e1", "c": "execComm", "ctx": "التواصل التنفيذي يعني توضيح الأمور المعقدة لأشخاص ليس لديهم وقت ولديهم رهانات عالية.", "txt": "لديك 5 دقائق مع الرئيس التنفيذي للحصول على موافقة على مشروع عملتِ عليه لأشهر. كيف تتعاملين معه؟", "opts": ["أركز على الأجزاء التي أنا أكثر حماسًا لها", "أبدأ بالطلب، أعطي السياق الرئيسي، وأستعد لأسئلتهم المحتملة", "أستعرض الخلفية الكاملة حتى يكون لديه سياق", "أفتح بالقرار المطلوب ولماذا يهم الآن، أقدم الحجة في 3 نقاط، أتوقع الاعتراضات، وأُغلق بخطوة تالية واضحة", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [2, 3, 1, 4, 1]}, {"id": "e2", "c": "execComm", "ctx": "تقديم أخبار سيئة للأعلى من أكثر مهارات القيادة تجنبًا — وأهمها.", "txt": "مشروع سيفوّت موعدًا حيويًا. القادة الكبار يتوقعونه في الوقت المحدد. ماذا تفعلين؟", "opts": ["أُخبر أصحاب المصلحة المعنيين مبكرًا، أشرح ما حدث، وأعطي جدولًا زمنيًا معدّلًا", "أرسل رسالة مختصرة أُشير فيها إلى التأخير", "أتقدم بذلك فورًا، أتحمل المسؤولية بوضوح، أشرح السبب الجذري والأثر، أُقدم خطة معدّلة مع إجراءات تخفيف، وأقترح ما يتغير لمنع التكرار", "أنتظر حتى يصبح حتميًا ثم أشرح ما حدث", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 2, 4, 1, 1]}, {"id": "ch1", "c": "changeAdaptability", "ctx": "قيادة التغيير أصعب من إدارة الاستقرار. معظم الناس يقاومون التغيير — حتى التغيير الجيد.", "txt": "تقودين تغييرًا جوهريًا في العملية يقاومه فريقك بشكل علني. التغيير ضروري. ماذا تفعلين؟", "opts": ["أعقد جلسات لشرح السبب، أستمع للمخاوف، وأعالج ما أستطيع", "أفصل بين المخاوف المشروعة ومقاومة التغيير، أُعالج الأولى، أُشرك المشككين الرئيسيين في تشكيل التنفيذ، وأبني انتصارات مبكرة لتحويل الزخم", "أدفعه للأمام — المقاومة طبيعية وسيتكيفون", "أُقلّص التغيير لتقليل الاحتكاك", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 4, 1, 2, 1]}, {"id": "ch2", "c": "changeAdaptability", "ctx": "كيف تستجيبين شخصيًا لعدم اليقين يحدد نبرة فريقك بأكمله.", "txt": "تُعلن مؤسستك عن إعادة هيكلة كبيرة. فريقك قلق ويتطلع إليك للطمأنينة — لكنك لم تحصلي على إجابات بعد. ماذا تفعلين؟", "opts": ["أكون صريحة بشأن ما أعرفه وما لا أعرفه، وأبقى ظاهرة ومتاحة", "أتواصل باستباقية بما أعرفه، أُسمّي عدم اليقين دون تضخيمه، أعطي الفريق تركيزًا واضحًا للحاضر، وأتابع مع توافر المعلومات", "أنتظر حتى تتوفر لديّ إجابات قبل قول أي شيء", "أُطمئن الفريق بأن كل شيء سيكون على ما يرام", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 4, 1, 2, 1]}, {"id": "b1", "c": "businessAcumen", "ctx": "يُتوقع من القادة الكبار ربط قراراتهم بالأثر على الأعمال — ليس فقط النتائج التشغيلية.", "txt": "تريدين توظيف شخصين إضافيين لفريقك. الميزانية محدودة. كيف تُقدّمين الحجة؟", "opts": ["أبني حجة تُظهر فجوات الطاقة الحالية، ما هو في خطر، وما يصبح ممكنًا بموارد إضافية", "أُظهر ما لا يستطيع الفريق فعله الآن وأطلب التوظيف", "أشرح أن الفريق ممتد ويحتاج دعمًا", "أُحدد تكلفة عدم التوظيف مقابل تكلفة التوظيف، أربط الطلب بنتائج أعمال محددة، أُظهر العائد على الاستثمار، وأُقدمه بلغة صانع القرار", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 2, 1, 4, 1]}, {"id": "b2", "c": "businessAcumen", "ctx": "فهم كيف يرتبط عملك بما تهتم به الشركة فعلًا يغير طريقة تحديد أولوياتك.", "txt": "تراجعين أولويات فريقك للربع القادم. كيف تقررين ما تركزين عليه؟", "opts": ["أُوائم الأولويات مع الأهداف التي حددها مديري وأُصفّي منها", "أُعيّن أنشطة الفريق على نتائج الأعمال، أحدد ما يُحرّك الإبرة أكثر، أحذف ما لا يتصل، وأبني حجة واضحة للأولويات التي أوصي بها", "أُحدد الأولويات بناءً على ما يجده الفريق أكثر قيمة", "أستمر بما نجح وأُضيف ما طلبته القيادة", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [3, 4, 2, 1, 1]}, {"id": "r1", "c": "resilience", "ctx": "المرونة القيادية لا تعني فقط النجاة من الضغط — بل الأداء خلاله وحماية فريقك.", "txt": "تمرين بفترة صعبة شخصيًا — ضغط عالٍ وانتكاسات وعدم يقين. لا تزالين بحاجة لقيادة فريقك بفعالية. كيف يبدو نهجك؟", "opts": ["أُدير حالتي بنشاط، أكون شفافة بشكل مناسب مع فريقي دون إثقالهم، أحمي ما يهم أكثر، وأعرف متى أطلب الدعم", "أبذل قصارى جهدي لكن أقبل أن قيادتي ستتأثر", "أُدير طاقتي بوعي وأكون انتقائية في ما أستوعبه", "أدفع للأمام وأبقى محترفة — لا أدعه يظهر", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [4, 2, 3, 1, 1]}, {"id": "r2", "c": "resilience", "ctx": "الضغط في القيادة معدٍ — وكذلك الهدوء.", "txt": "فريقك تحت ضغط كبير ومستويات التوتر واضحة للعيان. تلاحظين بدء تراجع الأداء. ماذا تفعلين؟", "opts": ["أمنح الناس استراحة حيثما أمكن وآمل أن تستقر الأمور", "أتعامل معه كمشكلة هيكلية — أحدد الأسباب الجذرية، أحمي وقت التعافي، أعالج ما في سيطرتي، أُصعّد ما ليس فيها، وأُنمذج السلوك الذي أريد رؤيته", "أتحقق بشكل فردي، أُعدّل عبء العمل حيث أستطيع، وأكون صريحة بشأن الوضع", "أُسمّي الضغط وأُذكّر الفريق بالمضي قدمًا — الموعد النهائي حقيقي", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [2, 4, 3, 1, 1]}, {"id": "cp1", "c": "careerPositioning", "ctx": "في المستويات العليا، أن تكون جيدًا في عملك لا يكفي. كيف تُرى وتُوضع أمر مهم.", "txt": "دور تريدينه حقًا يفتح داخليًا. تعتقدين أنك المرشحة الداخلية الأقوى. ماذا تفعلين؟", "opts": ["أُضع نفسي باستباقية قبل الإعلان عن الدور، أبني الدعم مع صانعي القرار الرئيسيين، أُعد حجة مقنعة لجاهزيتي، وأدخل العملية بوضوح حول ما أُقدمه", "أُخبر مديري باهتمامي وأطلب دعمه", "أتقدم وأدع سجلي يتكلم", "أُجري محادثة واضحة حول اهتمامي، أُقدم الحجة لكوني جاهزة، وأسأل ما الذي أحتاج إثباته", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [4, 2, 1, 3, 1]}, {"id": "cp2", "c": "careerPositioning", "ctx": "معظم الناس يديرون مسيرتهم بشكل تفاعلي. أفضل المحترفين يديرونها كاستراتيجية.", "txt": "بالنظر إلى مسيرتك على مدى السنوات الثلاث القادمة — ما مدى تعمدك في وجهتك؟", "opts": ["أركز على الأداء الجيد في دوري الحالي وأرى ما يأتي", "لدي اتجاه واضح وأعمل نحوه بنشاط مع بعض الهيكل", "لدي فكرة عامة عن وجهتي لكنني لم أخططها", "لدي رؤية محددة وخطة وأبني العلاقات والمهارات الصحيحة وأراجعها وأُعدّلها بانتظام", "لا أعرف صراحةً ماذا سأفعل هنا"], "scores": [1, 3, 2, 4, 1]}]}
+</script>
+<script id="meta-data" type="application/json">
+{"labels": {"strategicThinking": {"en": "Strategic Thinking", "ar": "التفكير الاستراتيجي"}, "influence": {"en": "Influence & Stakeholder Management", "ar": "التأثير وإدارة أصحاب المصلحة"}, "leadership": {"en": "Leadership & Developing Others", "ar": "القيادة وتطوير الآخرين"}, "decisionMaking": {"en": "Decision Making & Judgment", "ar": "اتخاذ القرار والحكم"}, "execComm": {"en": "Executive Communication", "ar": "التواصل التنفيذي"}, "changeAdaptability": {"en": "Change & Adaptability", "ar": "التغيير والتكيّف"}, "businessAcumen": {"en": "Commercial & Business Acumen", "ar": "الفطنة التجارية والأعمال"}, "resilience": {"en": "Resilience & Sustainable Performance", "ar": "المرونة والأداء المستدام"}, "careerPositioning": {"en": "Career Positioning & Readiness", "ar": "التموضع المهني والجاهزية"}}, "icons": {"strategicThinking": "&#9820;&#65039;", "influence": "&#128279;", "leadership": "&#127807;", "decisionMaking": "&#9878;&#65039;", "execComm": "&#127908;", "changeAdaptability": "&#128260;", "businessAcumen": "&#128200;", "resilience": "&#128170;", "careerPositioning": "&#127919;"}, "books": {"strategicThinking": {"en": {"t": "Good Strategy Bad Strategy", "a": "Richard Rumelt"}, "ar": {"t": "الاستراتيجية الجيدة والسيئة", "a": "Richard Rumelt"}}, "influence": {"en": {"t": "Never Split the Difference", "a": "Chris Voss"}, "ar": {"t": "لا تتوصل إلى تسوية في المنتصف", "a": "Chris Voss"}}, "leadership": {"en": {"t": "Radical Candor", "a": "Kim Scott"}, "ar": {"t": "الصراحة الجذرية", "a": "Kim Scott"}}, "decisionMaking": {"en": {"t": "Thinking in Bets", "a": "Annie Duke"}, "ar": {"t": "التفكير بالرهانات", "a": "Annie Duke"}}, "execComm": {"en": {"t": "The Pyramid Principle", "a": "Barbara Minto"}, "ar": {"t": "مبدأ الهرم", "a": "Barbara Minto"}}, "changeAdaptability": {"en": {"t": "Leading Change", "a": "John Kotter"}, "ar": {"t": "قيادة التغيير", "a": "John Kotter"}}, "businessAcumen": {"en": {"t": "Measure What Matters", "a": "John Doerr"}, "ar": {"t": "قس ما يهم", "a": "John Doerr"}}, "resilience": {"en": {"t": "Dare to Lead", "a": "Brene Brown"}, "ar": {"t": "تجرأي على القيادة", "a": "Brene Brown"}}, "careerPositioning": {"en": {"t": "Designing Your Life", "a": "Burnett & Evans"}, "ar": {"t": "صمّم حياتك", "a": "Burnett & Evans"}}}, "archetypes": [{"id": "catalyst", "skills": ["changeAdaptability", "influence", "leadership"], "en": {"name": "The Catalyst", "icon": "&#128293;", "tagline": "You ignite movement and make change happen", "impact": "Drives transformation and brings people with them", "context": "Change, turnaround, new initiatives"}, "ar": {"name": "المحفّز", "icon": "&#128293;", "tagline": "تشعلين الحركة وتجعلين التغيير يحدث", "impact": "يدفع التحول ويجلب الناس معه", "context": "التغيير، إعادة البناء، المبادرات الجديدة"}}, {"id": "strategist", "skills": ["strategicThinking", "decisionMaking", "businessAcumen"], "en": {"name": "The Strategist", "icon": "&#9820;&#65039;", "tagline": "You see the whole board and play three moves ahead", "impact": "Turns complexity into clear direction", "context": "Senior leadership, consulting, strategy roles"}, "ar": {"name": "الاستراتيجي", "icon": "&#9820;&#65039;", "tagline": "ترين اللوحة كاملة وتلعبين ثلاث خطوات للأمام", "impact": "تحوّل التعقيد إلى اتجاه واضح", "context": "القيادة العليا، الاستشارات، الاستراتيجية"}}, {"id": "coach", "skills": ["leadership", "resilience", "influence"], "en": {"name": "The Coach", "icon": "&#127807;", "tagline": "You grow people and build teams that outlast you", "impact": "Develops talent and multiplies leadership capacity", "context": "People management, L&D, HR leadership, team building"}, "ar": {"name": "المدرّب", "icon": "&#127807;", "tagline": "تنمّين الناس وتبنين فرقًا تتجاوزك،", "impact": "يطوّر المواهب ويضاعف طاقة القيادة", "context": "إدارة الأفراد، التعلم والتطوير، الموارد البشرية"}}, {"id": "driver", "skills": ["decisionMaking", "resilience", "businessAcumen"], "en": {"name": "The Driver", "icon": "&#9889;", "tagline": "You deliver under pressure — reliably and at pace", "impact": "Gets critical outcomes across the line when it counts", "context": "Operations, high-stakes delivery, execution-heavy roles"}, "ar": {"name": "المنجز", "icon": "&#9889;", "tagline": "تُنجزين تحت الضغط — بموثوقية وبسرعة", "impact": "يحقق النتائج الحيوية عند الحاجة", "context": "العمليات، التسليم عالي المخاطرة، التنفيذ"}}, {"id": "connector", "skills": ["influence", "execComm", "strategicThinking"], "en": {"name": "The Connector", "icon": "&#128279;", "tagline": "You build alignment across groups and make things move", "impact": "Creates cross-functional momentum and senior buy-in", "context": "Chief of Staff, Business Partner, cross-functional leadership"}, "ar": {"name": "الموحّد", "icon": "&#128279;", "tagline": "تبنين التوافق عبر المجموعات وتجعلين الأمور تتحرك", "impact": "يخلق زخمًا وموافقة عبر الوظائف", "context": "رئيس الموظفين، شريك الأعمال، القيادة عبر الوظائف"}}, {"id": "stabiliser", "skills": ["resilience", "changeAdaptability", "leadership"], "en": {"name": "The Stabiliser", "icon": "&#128737;&#65039;", "tagline": "You hold things together when everything is uncertain", "impact": "Keeps teams functional and grounded through disruption", "context": "Crisis management, scaling teams, uncertainty-heavy environments"}, "ar": {"name": "المثبّت", "icon": "&#128737;&#65039;", "tagline": "تحافظين على تماسك الأمور عندما يكون كل شيء غير مؤكد", "impact": "يبقي الفرق فعالة ومتماسكة خلال الاضطراب", "context": "إدارة الأزمات، توسيع الفرق، بيئات عدم اليقين"}}], "descs": {"en": {"excellent": "This is a natural leadership strength. You handle these situations with consistency and sophistication. The opportunity is leverage — use this to amplify your impact as a leader.", "strong": "You perform well here with occasional gaps. A solid leadership foundation. Focused practice in specific scenarios will make this a reliable strength.", "good": "You are competent in most situations. At a senior level, building more deliberate habits here will significantly sharpen your leadership impact.", "developing": "You show awareness but are not yet consistent at a leadership level. This is a high-priority development area for someone at your experience level.", "needs": "This is a priority area for your leadership development. Addressing it will unlock meaningful growth in your ability to lead at a senior level."}, "ar": {"excellent": "هذه قوة قيادية طبيعية. الفرصة هنا هي الرافعة — استخدميها لتضخيم تأثيرك كقائدة.", "strong": "تؤدين بشكل جيد مع بعض الثغرات. أساس قيادي متين. التدريب المركّز سيجعل هذا نقطة قوة موثوقة.", "good": "أنتِ كفؤة في معظم المواقف. بناء عادات أكثر تعمدًا سيصقل تأثيرك القيادي بشكل كبير.", "developing": "تُظهرين وعيًا لكنك لست متسقة بعد على المستوى القيادي. هذا مجال تطوير ذو أولوية عالية.", "needs": "هذا مجال تطوير ذو أولوية لتطورك القيادي. معالجته ستفتح نموًا ملموسًا في قدرتك على القيادة."}}}
+</script>
+<script>
+var lang='en', ans={};
+var SHEETS='https://script.google.com/macros/s/AKfycbz__rZkfFWfjVSjf-UGe-RZX2feQYdu4Nap7zb0vW6JpY3AqpboAXDLFn0WdF6cZ0RdoQ/exec';
+var QD   = JSON.parse(document.getElementById('q-data').textContent);
+var META = JSON.parse(document.getElementById('meta-data').textContent);
+
+function getLvl(p){
+  if(p>=88)return{k:'excellent',l:{en:'&#11088; Excellent',ar:'&#11088; ممتاز'},c:'#5B21B6',bg:'#F5F3FF',bar:'#8B5CF6'};
+  if(p>=72)return{k:'strong',   l:{en:'&#11088; Strong',   ar:'&#11088; قوي'},   c:'#1D4ED8',bg:'#DBEAFE',bar:'#3B82F6'};
+  if(p>=56)return{k:'good',     l:{en:'Good',    ar:'جيد'},    c:'#065F46',bg:'#D1FAE5',bar:'#10B981'};
+  if(p>=38)return{k:'developing',l:{en:'Developing',ar:'في التطور'},c:'#B45309',bg:'#FEF3C7',bar:'#F97316'};
+  return      {k:'needs',     l:{en:'Needs Work',ar:'يحتاج تطوير'},c:'#6B21A8',bg:'#F3E8FF',bar:'#7C3AED'};
+}
+
+function getArchetype(fs){
+  var best=null,bestScore=-1;
+  META.archetypes.forEach(function(a){
+    var tot=0,cnt=0;
+    a.skills.forEach(function(sk){if(fs[sk]){tot+=fs[sk].p;cnt++;}});
+    var sc=cnt?tot/cnt:0;
+    if(sc>bestScore){bestScore=sc;best=a;}
+  });
+  return best;
+}
+
+function renderQs(){
+  var qs=QD[lang],h='';
+  qs.forEach(function(q,i){
+    var sv=ans[q.id];
+    h+='<div class="qb" id="qb_'+q.id+'">';
+    h+='<div class="qn">'+(lang==='ar'?'سؤال':'Question')+' '+(i+1)+' / '+qs.length+'</div>';
+    if(q.ctx)h+='<div class="qctx">'+q.ctx+'</div>';
+    h+='<div class="qt">'+q.txt+'</div><div class="qopts">';
+    q.opts.forEach(function(o,oi){
+      var score=q.scores?q.scores[oi]:(oi===4?1:oi+1);
+      var isU=oi===4;
+      var cls='qopt'+(sv===score?' sel':'')+(isU?' opt-unsure':'');
+      h+='<div class="'+cls+'" id="opt_'+q.id+'_'+oi+'"><div class="qr"><div class="qd"></div></div><span class="qt-txt">'+o+'</span></div>';
+    });
+    h+='</div></div>';
+  });
+  document.getElementById('qCard').innerHTML=h;
+  qs.forEach(function(q){
+    q.opts.forEach(function(o,oi){
+      var el=document.getElementById('opt_'+q.id+'_'+oi);
+      var score=q.scores?q.scores[oi]:(oi===4?1:oi+1);
+      if(el)(function(qid,idx,sc){el.addEventListener('click',function(){pickOpt(qid,idx,sc);});})(q.id,oi,score);
+    });
+  });
+}
+
+function pickOpt(qid,optIdx,score){
+  ans[qid]=score;
+  var b=document.getElementById('qb_'+qid);
+  b.querySelectorAll('.qopt').forEach(function(o){o.classList.remove('sel');});
+  document.getElementById('opt_'+qid+'_'+optIdx).classList.add('sel');
+  up();
+}
+
+function go1(){sh('s1');hd('s2');hd('s3');si(1);up();scrollUp();}
+function go2(){
+  var n=document.getElementById('iN').value.trim();
+  var e=document.getElementById('iE').value.trim();
+  var y=document.getElementById('iY').value;
+  if(!n||!e||!y){sw('w1');return;}
+  renderQs();
+  sh('s2');hd('s1');hd('s3');
+  document.getElementById('progSec').style.display='block';
+  si(2);up();scrollUp();
+}
+function genRep(){
+  var qs=QD[lang];
+  var ua=qs.filter(function(q){return !ans[q.id];});
+  if(ua.length){sw('w2');var el=document.getElementById('qb_'+ua[0].id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  sh('s3');hd('s1');hd('s2');
+  document.getElementById('repDiv').innerHTML='<div style="text-align:center;padding:60px 20px"><div class="spin"></div><div style="font-size:14px;color:var(--g400)">'+(lang==='ar'?'جارٍ إنشاء تقريرك...':'Building your leadership report...')+'</div></div>';
+  si(3);scrollUp();
+  setTimeout(calc,1800);
+}
+
+function calc(){
+  var qs=QD[lang],cs={};
+  qs.forEach(function(q){
+    var v=ans[q.id]||1;
+    if(!cs[q.c])cs[q.c]=[];
+    cs[q.c].push(Math.round((v/4)*100));
+  });
+  var fs={};
+  Object.keys(cs).forEach(function(c){
+    var vals=cs[c],avg=Math.round(vals.reduce(function(a,b){return a+b;},0)/vals.length);
+    fs[c]={p:avg,level:getLvl(avg),lbl:META.labels[c][lang],ic:META.icons[c]||'&#128204;'};
+  });
+  var allP=Object.keys(fs).map(function(c){return fs[c].p;});
+  var overall=Math.round(allP.reduce(function(a,b){return a+b;},0)/allP.length);
+  var sorted=Object.keys(fs).sort(function(a,b){return fs[b].p-fs[a].p;});
+  var top3s=sorted.slice(0,3).map(function(c){return[c,fs[c]];});
+  var top3g=sorted.slice(-3).reverse().map(function(c){return[c,fs[c]];});
+  renderRep(fs,overall,top3s,top3g);
+  submitS(fs,overall,top3s,top3g);
+}
+
+function renderRep(fs,overall,top3s,top3g){
+  var name=document.getElementById('iN').value.trim();
+  var role=document.getElementById('iR').value.trim();
+  var yrs=document.getElementById('iY').value;
+  var isAR=lang==='ar';
+  var arch=getArchetype(fs);
+  var archD=arch?arch[isAR?'ar':'en']:null;
+  var rTitle=isAR?'تقرير قيادة '+name:name+"'s Leadership Report";
+
+  var h='<div class="rhdr">';
+  h+='<div class="rname"><em>'+rTitle+'</em></div>';
+  h+='<div class="rmeta">'+(role?role+' &middot; ':'')+yrs+(isAR?' سنة خبرة':' years experience')+' &middot; '+new Date().toLocaleDateString(isAR?'ar-EG':'en-GB')+'</div>';
+
+  // Archetype badge
+  if(archD){
+    h+='<div style="margin:16px 0;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px">';
+    h+='<span style="font-size:36px">'+archD.icon+'</span>';
+    h+='<div>';
+    h+='<div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:2px">'+(isAR?'نمط قيادتك':'Your Leadership Archetype')+'</div>';
+    h+='<div style="font-family:DM Serif Display,serif;font-size:22px;color:#C4B5FD;margin-bottom:2px">'+archD.name+'</div>';
+    h+='<div style="font-size:12px;color:rgba(255,255,255,0.55)">'+archD.tagline+'</div>';
+    h+='<div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px">'+(isAR?'أثرك الرئيسي':'Primary impact: ')+archD.impact+'</div>';
+    h+='<div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px">'+(isAR?'بيئتك الطبيعية':'Natural context: ')+archD.context+'</div>';
+    h+='</div></div>';
+  }
+
+  h+='<div><div class="rscore">'+overall+'%</div>';
+  h+='<div class="rscl">'+(isAR?'نتيجة القيادة الإجمالية':'Leadership Score')+'</div></div></div>';
+
+  // Threshold gate
+  var noRealGaps=top3g.every(function(p){return p[1].p>=72;});
+  var trueGaps=top3g.filter(function(p){return p[1].p<72;});
+  var showGaps=noRealGaps?top3g:(trueGaps.length?trueGaps:top3g);
+  var gapTitle=noRealGaps?(isAR?'&#10024; مهارات أقل هيمنة':'&#10024; Comparatively Lower Strengths'):(isAR?'&#127919; أولويات التطوير':'&#127919; Leadership Gaps');
+
+  h+='<div class="t3g">';
+  h+='<div class="t3c t3s"><div class="t3t s">'+(isAR?'&#11088; نقاط قوتك':'&#11088; Leadership Strengths')+'</div>';
+  top3s.forEach(function(p,i){h+='<div class="t3i s"><span>'+['&#127775;','&#127776;','&#127777;'][i]+'</span>'+p[1].lbl+'</div>';});
+  h+='</div><div class="t3c t3d"><div class="t3t g">'+gapTitle+'</div>';
+  if(noRealGaps)h+='<div style="font-size:10px;color:#5B21B6;margin-bottom:8px;font-style:italic">'+(isAR?'ليست ضعفًا — فقط أقل هيمنة.':'Not weaknesses — relatively less dominant.')+'</div>';
+  showGaps.forEach(function(p){
+    var col=noRealGaps?'#5B21B6':'#7C3AED';
+    h+='<div class="t3i" style="color:'+col+'"><span>'+(noRealGaps?'&#11088;':'&#127919;')+'</span>'+p[1].lbl+' &mdash; '+p[1].level.l[lang]+'</div>';
+  });
+  h+='</div></div>';
+
+  h+='<div style="margin-bottom:10px;font-size:11px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:1px">'+(isAR?'تفاصيل المهارات':'All Skills — Gaps First')+'</div>';
+
+  Object.keys(fs).sort(function(a,b){return fs[a].p-fs[b].p;}).forEach(function(c){
+    var d=fs[c],lv=d.level,bk=META.books[c]?META.books[c][lang]:null,desc=META.descs[lang][lv.k];
+    h+='<div class="cc"><div class="cchdr"><span class="ccicon">'+d.ic+'</span><span class="ccname">'+d.lbl+'</span>';
+    h+='<span class="ccbadge" style="background:'+lv.bg+';color:'+lv.c+'">'+lv.l[lang]+'</span></div>';
+    h+='<div class="ccpct">'+d.p+'%</div><div class="ccbar"><div class="ccfill" style="width:'+d.p+'%;background:'+lv.bar+'"></div></div>';
+    h+='<div class="ccpara">'+desc+'</div>';
+    if(bk&&d.p<88)h+='<div class="ccbook">&#128218; <div>'+(isAR?'كتاب مقترح':'Suggested Book')+': <span class="ccbook-t">'+bk.t+'</span> &mdash; '+bk.a+'</div></div>';
+    if(d.p>=88)h+='<div style="font-size:11px;color:var(--em);margin-top:4px">&#10003; '+(isAR?'قوة قيادية طبيعية — استخدميها رافعة لكل شيء آخر.':'Natural leadership strength. Use it as a lever for everything else.')+'</div>';
+    h+='</div>';
+  });
+
+  // Fit signal
+  var fsig=overall>=80
+    ?(isAR?'حصلتِ على <strong style="color:#C4B5FD">'+overall+'%</strong> — مستوى قيادي عالٍ. السؤال الحقيقي: هل دورك يستػل كل هذا فعلًا؟ جلسة التوافق ستخبرك.':'You scored <strong style="color:#C4B5FD">'+overall+'%</strong> — strong leadership profile. The real question is whether your current role is making full use of this. A Fit Check session will tell you.')
+    :(isAR?'نتائجك تُظهر نمط قيادي واضحًا. جلسة التوافق ستخبرك أين تتوافق قيادتك أكثر.':'Your results show a clear leadership profile. A Fit Check will tell you where your leadership is best deployed.');
+  h+='<div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:14px;padding:20px 24px;margin-bottom:20px">';
+  h+='<div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8B5CF6;margin-bottom:8px">&#128270; '+(isAR?'إشارة التوافق القيادي':'Leadership Fit Signal')+'</div>';
+  h+='<p style="font-size:14px;color:#1E293B;line-height:1.7">'+fsig+'</p></div>';
+
+  var n=encodeURIComponent(name),em=encodeURIComponent(document.getElementById('iE').value.trim());
+  h+='<div class="ctabox"><h3>'+(isAR?'مستعدة للخطوة التالية؟':'Ready for your next move?')+'</h3>';
+  h+='<p>'+(isAR?'جلسة فردية مع مي لمناقشة نتائج قيادتك وما يعنيها لمسيرتك.':'A 1-on-1 session with Mai to go deep on your leadership results and what they mean for your next move.')+'</p>';
+  h+='<div class="ctabtns">';
+  h+='<a href="https://calendly.com/maihanafy204/30min?name='+n+'&email='+em+'" target="_blank" class="btn-purple">&#128197; '+(isAR?'احجزي جلسة التوافق':'Book a Fit Check')+'</a>';
+  h+='<a href="https://wa.me/201204550555" target="_blank" class="btn-wa">&#128172; WhatsApp</a>';
+  h+='<button class="btn-g" onclick="window.print()" style="color:white;border-color:rgba(255,255,255,0.2)">&#11015;&#65039; '+(isAR?'تحميل التقرير':'Download')+'</button>';
+  h+='</div></div>';
+  document.getElementById('repDiv').innerHTML=h;
+}
+
+function submitS(fs,overall,top3s,top3g){
+  var sc={};Object.keys(fs).forEach(function(c){sc[c]=fs[c].p;});
+  fetch(SHEETS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+    name:document.getElementById('iN').value.trim(),email:document.getElementById('iE').value.trim(),
+    role:document.getElementById('iR').value.trim(),years:document.getElementById('iY').value,
+    language:lang,assessmentLevel:'Level2',scores:sc,overallScore:overall,
+    top3Strengths:top3s.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | '),
+    top3Gaps:top3g.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | ')
+  })}).catch(function(){});
+}
+
+function up(){
+  var step=cur(),total=QD[lang].length,done=Object.keys(ans).length;
+  var p=step===3?100:step===1?5:Math.min(Math.round((done/total)*100),95);
+  document.getElementById('pf').style.width=p+'%';
+  document.getElementById('pt').textContent=p+(lang==='ar'?'% مكتمل':'% complete');
+}
+function cur(){if(document.getElementById('s1').style.display!=='none')return 1;if(document.getElementById('s2').style.display!=='none')return 2;return 3;}
+function si(a){
+  [[1,'sn1','sl1',null],[2,'sn2','sl2','ll1'],[3,'sn3','sl3','ll2']].forEach(function(s){
+    var n=document.getElementById(s[1]),l=document.getElementById(s[2]),ln=s[3]?document.getElementById(s[3]):null;
+    if(s[0]<a){n.className='psn done';n.innerHTML='&#10003;';l.className='psl done';if(ln)ln.className='psline done';}
+    else if(s[0]===a){n.className='psn act';n.innerHTML=s[0]===3?'&#128202;':s[0];l.className='psl act';}
+    else{n.className='psn pend';n.innerHTML=s[0]===3?'&#128202;':s[0];l.className='psl pend';}
+  });
+}
+function sw(id){var w=document.getElementById(id);w.classList.add('show');setTimeout(function(){w.classList.remove('show');},3000);}
+function sh(id){document.getElementById(id).style.display='block';}
+function hd(id){document.getElementById(id).style.display='none';}
+function scrollUp(){window.scrollTo({top:0,behavior:'smooth'});}
+function toggleLang(){
+  lang=lang==='en'?'ar':'en';
+  var isAR=lang==='ar';
+  document.documentElement.setAttribute('dir',isAR?'rtl':'ltr');
+  document.body.classList.toggle('rtl',isAR);
+  document.getElementById('langBtn').textContent=isAR?'🇬🇧 EN':'🇸🇦 AR';
+  document.getElementById('heroTag').textContent=isAR?'تقييم القيادة المتقدم':'Advanced Leadership Assessment';
+  document.getElementById('heroH1').innerHTML=isAR?'كيف قوة <em>قيادتك؟</em>':'How strong is your <em>leadership?</em>';
+  document.getElementById('heroSub').textContent=isAR?'18 سيناريو متقدم عبر 9 مهارات قيادية. مصمّم للمحترفين بخبرة 5+ سنوات. حوالي 15 دقيقة.':'18 senior-level scenarios across 9 leadership skills. Designed for professionals with 5+ years experience. Takes about 15 minutes.';
+  if(cur()===2)renderQs();
+  up();
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('b1').addEventListener('click',go2);
+  document.getElementById('b2b').addEventListener('click',go1);
+  document.getElementById('b2n').addEventListener('click',genRep);
+  document.getElementById('langBtn').addEventListener('click',toggleLang);
+});
+</script>
+</body>
+</html>
