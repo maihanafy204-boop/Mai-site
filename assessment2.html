@@ -125,9 +125,41 @@ body.rtl .ctabox h3{font-family:'Tajawal',sans-serif}
 @keyframes sp{to{transform:rotate(360deg)}}
 @media print{.nav,.prog-sec,.navbtns,.ctabox{display:none!important}.main{padding:0}}
 @media(max-width:600px){.frow{grid-template-columns:1fr}.t3g{grid-template-columns:1fr}.ctabtns{flex-direction:column;align-items:center}}
+
+.gate-overlay{position:fixed;inset:0;background:var(--navy);z-index:999;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-card{background:#0F1E30;border:1.5px solid rgba(139,92,246,0.3);border-radius:20px;padding:40px 36px;max-width:420px;width:100%;text-align:center}
+.gate-icon{font-size:48px;margin-bottom:16px;display:block}
+.gate-title{font-family:'DM Serif Display',serif;font-size:24px;color:white;margin-bottom:8px}
+.gate-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:28px}
+.gate-input{width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:13px 16px;font-size:16px;color:white;font-family:inherit;outline:none;text-align:center;letter-spacing:3px;margin-bottom:12px}
+.gate-input:focus{border-color:rgba(139,92,246,0.6)}
+.gate-input::placeholder{letter-spacing:0;color:rgba(255,255,255,0.3)}
+.gate-btn{width:100%;background:linear-gradient(135deg,#8B5CF6,#7C3AED);color:white;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:12px}
+.gate-err{font-size:13px;color:#FCA5A5;margin-bottom:12px;display:none}
+.gate-wa{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,0.4);font-size:13px;text-decoration:none;margin-top:4px}
+.gate-wa:hover{color:#25D366}
+
 </style>
 </head>
 <body>
+
+<!-- PASSWORD GATE -->
+<div class="gate-overlay" id="gateOverlay">
+  <div class="gate-card">
+    <span class="gate-icon">&#9820;&#65039;</span>
+    <div class="gate-title">Advanced Leadership Assessment</div>
+    <p class="gate-sub">This assessment is available by invitation only.<br>Enter your access code to continue.</p>
+    <input class="gate-input" id="gateInput" type="password" placeholder="Enter access code" autocomplete="off">
+    <div class="gate-err" id="gateErr">Incorrect code. Please contact Mai for access.</div>
+    <button class="gate-btn" id="gateBtn">Continue &#8594;</button>
+    <br>
+    <a href="https://wa.me/201204550555?text=Hi%20Mai%2C%20I%20completed%20Level%201%20and%20would%20like%20access%20to%20the%20Advanced%20Leadership%20Assessment." 
+       target="_blank" class="gate-wa">
+      &#128172; Request access on WhatsApp
+    </a>
+  </div>
+</div>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -426,6 +458,32 @@ function toggleLang(){
   if(cur()===2)renderQs();
   up();
 }
+
+// Password gate
+(function(){
+  var PASS = 'cc2024';
+  var stored = sessionStorage.getItem('l2access');
+  if(stored === PASS) {
+    document.getElementById('gateOverlay').style.display = 'none';
+    return;
+  }
+  document.getElementById('gateBtn').addEventListener('click', checkPass);
+  document.getElementById('gateInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') checkPass();
+  });
+  function checkPass(){
+    var val = document.getElementById('gateInput').value.trim().toLowerCase();
+    if(val === PASS){
+      sessionStorage.setItem('l2access', PASS);
+      document.getElementById('gateOverlay').style.display = 'none';
+    } else {
+      document.getElementById('gateErr').style.display = 'block';
+      document.getElementById('gateInput').value = '';
+      document.getElementById('gateInput').focus();
+    }
+  }
+})();
+
 document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('b1').addEventListener('click',go2);
   document.getElementById('b2b').addEventListener('click',go1);

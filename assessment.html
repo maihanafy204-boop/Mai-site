@@ -484,10 +484,10 @@ function renderRep(fs,overall,top3s,top3g){
     var l2BodyAR  = 'نتائجك تُظهر أساسًا قويًا. أنتِ مستعدة لاستكشاف قدراتك المهنية على مستوى أعمق.';
     var l2BtnEN   = 'Take Level 2 Assessment →';
     var l2BtnAR   = '← ابدأي التقييم المتقدم';
-    var l2NoteEN  = '18 scenarios · 15 minutes · Free';
-    var l2NoteAR  = '18 سيناريو · 15 دقيقة · مجاني';
-    var l2LblEN   = 'Available for you';
-    var l2LblAR   = 'متاح لك';
+    var l2NoteEN  = '18 scenarios · 15 minutes · Paid';
+    var l2NoteAR  = '18 سيناريو · 15 دقيقة · مدفوع';
+    var l2LblEN   = 'By invitation only';
+    var l2LblAR   = 'بالدعوة فقط';
     h += '<div style="background:linear-gradient(135deg,#1E1040,#0D1B2E);border:1px solid rgba(139,92,246,0.3);border-radius:16px;padding:24px;margin-bottom:20px">';
     h += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">';
     h += '<span style="font-size:24px">&#9820;&#65039;</span>';
@@ -497,7 +497,7 @@ function renderRep(fs,overall,top3s,top3g){
     h += '</div></div>';
     h += '<p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:16px">' + (isAR ? l2BodyAR : l2BodyEN) + '</p>';
     h += '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">';
-    h += '<a href="assessment2.html" style="background:linear-gradient(135deg,#8B5CF6,#7C3AED);color:white;border-radius:10px;padding:11px 22px;font-size:13px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px">' + (isAR ? l2BtnAR : l2BtnEN) + '</a>';
+    h += '<a href="https://wa.me/201204550555?text=Hi%20Mai%2C%20I%20completed%20the%20Level%201%20Skills%20Assessment%20and%20scored%20' + overall + '%25.%20I%27d%20like%20to%20request%20access%20to%20the%20Advanced%20Leadership%20Assessment." target="_blank" style="background:#25D366;color:white;border-radius:10px;padding:11px 22px;font-size:13px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px">&#128172; ' + (isAR ? 'طلب الوصول عبر واتساب' : 'Request Access via WhatsApp') + '</a>';
     h += '<span style="font-size:11px;color:rgba(255,255,255,0.35)">' + (isAR ? l2NoteAR : l2NoteEN) + '</span>';
     h += '</div></div>';
   }
