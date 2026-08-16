@@ -158,7 +158,7 @@ body.rtl .ctabox h3{font-family:'Tajawal',sans-serif}
     <div class="gate-title">Advanced Leadership Assessment</div>
     <p class="gate-sub">This assessment is available by invitation only.<br>Enter your access code to continue.</p>
     <div style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);border-radius:8px;padding:8px 14px;margin-bottom:16px;font-size:12px;color:#C4B5FD">
-      &#128204; This is a <strong>paid assessment</strong>. Access is granted after confirming with Mai.
+      &#128204; This is a <strong>paid assessment</strong>. Access is granted after your request is reviewed and confirmed.
     </div>
     <input class="gate-input" id="gateInput" type="password" placeholder="Enter access code" autocomplete="off">
     <div class="gate-err" id="gateErr">Incorrect code. Please contact Mai for access.</div>
@@ -419,10 +419,16 @@ function renderRep(fs,overall,top3s,top3g){
   h+='<p style="font-size:14px;color:#1E293B;line-height:1.7">'+fsig+'</p></div>';
 
   var n=encodeURIComponent(name),em=encodeURIComponent(document.getElementById('iE').value.trim());
-  h+='<div class="ctabox"><h3>'+(isAR?'مستعدة للخطوة التالية؟':'Ready for your next move?')+'</h3>';
-  h+='<p>'+(isAR?'جلسة فردية مع مي لمناقشة نتائج قيادتك وما يعنيها لمسيرتك.':'A 1-on-1 session with Mai to go deep on your leadership results and what they mean for your next move.')+'</p>';
+  h+='<div class="ctabox"><h3>'+(isAR?'مستعدة للخطوة التالية؟':'1:1 Career Diagnostic')+'</h3>';
+  h+='<p>'+(isAR?'جلسة فردية مع مي لمناقشة نتائج قيادتك وما يعنيها لمسيرتك.':'Expert interpretation of your senior skills profile — what your results reveal about your readiness for the next level.')+'</p>';
+  h+='<ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:12px 0 16px;text-align:left">';
+  h+='<li style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="flex-shrink:0">'+(isAR?'&#128269;':'&#128269;')+'</span><span>'+(isAR?'\\u062a\\u0641\\u0633\\u064a\\u0631 \\u0645\\u062a\\u062e\\u0635\\u0635 \\u0644\\u0645\\u0644\\u0641\\u0643 \\u0627\\u0644\\u0645\\u0647\\u0646\\u064a \\u0627\\u0644\\u0645\\u062a\\u0642\\u062f\\u0645':'Expert interpretation of your senior skills profile')+'</span></li>';
+  h+='<li style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="flex-shrink:0">'+(isAR?'&#128683;':'&#128683;')+'</span><span>'+(isAR?'\\u062a\\u062d\\u062f\\u064a\\u062f \\u0645\\u0627 \\u0642\\u062f \\u064a\\u062d\\u062f\\u0651 \\u062a\\u0642\\u062f\\u0645\\u0643 \\u0644\\u0644\\u0645\\u0633\\u062a\\u0648\\u0649 \\u0627\\u0644\\u062a\\u0627\\u0644\\u064a':'Identify what may be limiting your next career level')+'</span></li>';
+  h+='<li style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="flex-shrink:0">'+(isAR?'&#129517;':'&#129517;')+'</span><span>'+(isAR?'\\u062a\\u0648\\u0636\\u064a\\u062d \\u062e\\u0637\\u0648\\u062a\\u0643 \\u0627\\u0644\\u0627\\u0633\\u062a\\u0631\\u0627\\u062a\\u064a\\u062c\\u064a\\u0629 \\u0627\\u0644\\u062a\\u0627\\u0644\\u064a\\u0629':'Clarify your most strategic next move')+'</span></li>';
+  h+='<li style="font-size:13px;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="flex-shrink:0">'+(isAR?'&#9889;':'&#9889;')+'</span><span>'+(isAR?'\\u063a\\u0627\\u062f\\u0631\\u064a \\u0628\\u0623\\u0648\\u0644\\u0648\\u064a\\u0629 \\u0639\\u0627\\u0644\\u064a\\u0629 \\u0627\\u0644\\u062a\\u0623\\u062b\\u064a\\u0631':'Leave with one high-impact priority')+'</span></li>';
+  h+='</ul>';
   h+='<div class="ctabtns">';
-  h+='<a href="https://calendly.com/maihanafy204/30min?name='+n+'&email='+em+'" target="_blank" rel="noopener noreferrer" class="btn-purple">&#128197; '+(isAR?'احجزي جلسة التوافق':'Book a Fit Check')+'</a>';
+  h+='<a href="https://calendly.com/maihanafy204/30min?name='+n+'&email='+em+'" target="_blank" rel="noopener noreferrer" class="btn-purple">&#128197; '+(isAR?'احجزي جلسة التوافق':'Book a 1:1 Career Diagnostic &#8594;')+'</a>';
   h+='<a href="https://wa.me/201204550555" target="_blank" rel="noopener noreferrer" class="btn-wa">&#128172; WhatsApp</a>';
   h+='<p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:16px">'+(isAR?'هذا التقييم لأغراض الوعي الذاتي فقط.':'This assessment is for self-awareness only and does not constitute professional career advice.')+'</p>';
   h+='<button class="btn-g" onclick="window.print()" style="color:white;border-color:rgba(255,255,255,0.2)">&#11015;&#65039; '+(isAR?'تحميل التقرير':'Download')+'</button>';
