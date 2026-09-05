@@ -698,6 +698,7 @@ function up(){
 function submitS(fs,overall,top3s,top3g){
   var sc={};
   Object.keys(fs).forEach(function(skill){sc[skill]=fs[skill].p;});
+  var disc = calcDISC();
   fetch(SHEETS,{
     method:'POST',mode:'no-cors',
     headers:{'Content-Type':'application/json'},
@@ -711,11 +712,60 @@ function submitS(fs,overall,top3s,top3g){
       scores:sc,
       overallScore:overall,
       top3Strengths:top3s.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | '),
-      top3Areas:top3g.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | ')
+      top3Areas:top3g.map(function(p){return p[1].lbl+': '+p[1].p+'%';}).join(' | '),
+      DISC_D: disc.D,
+      DISC_I: disc.I,
+      DISC_S: disc.S,
+      DISC_C: disc.C,
+      DISC_Profile: disc.profile,
+      DISC_Coaching: disc.coaching
     })
   }).catch(function(){});
 }
 
+
+// ── DISC SCORING ENGINE ──────────────────────────────────────────────────────
+function calcDISC(){
+  var pools = {
+    D: {ac1:1, ac2:1, ac3:1, dj1:1, dj2:1, dj3:0.5},
+    I: {cm1:1, cm2:1, cm3:1, co1:0.5},
+    S: {co2:1, co3:1, rs1:1, rs2:1, rs3:1, co1:0.5},
+    C: {ps1:1, ps2:1, ps3:1, al3:1, dj3:0.5}
+  };
+  var scores = {D:0, I:0, S:0, C:0};
+  var weights = {D:0, I:0, S:0, C:0};
+  Object.keys(pools).forEach(function(disc){
+    var pool = pools[disc];
+    Object.keys(pool).forEach(function(qid){
+      var w   = pool[qid];
+      var raw = ans[qid] || 1;
+      var pct = Math.round(((raw - 1) / 3) * 100);
+      scores[disc]  += pct * w;
+      weights[disc] += w;
+    });
+    scores[disc] = weights[disc] > 0 ? Math.round(scores[disc] / weights[disc]) : 0;
+  });
+  var ranked = Object.keys(scores).sort(function(a,b){ return scores[b] - scores[a]; });
+  var primary   = ranked[0];
+  var secondary = ranked[1];
+  var gap       = scores[primary] - scores[secondary];
+  var profile   = gap <= 8 ? primary + secondary : primary;
+  var notes = {
+    D:  'Results-oriented and decisive. May move fast and take ownership naturally. In coaching, focus on the cost of pace — how their directness may land on others, whether they are bringing people with them, and whether speed is sometimes coming at the expense of relationships or quality.',
+    I:  'Energetic, persuasive, and people-focused. Often strong at starting things and getting others engaged. In coaching, focus on follow-through — ideas that may not land, commitments that may not convert to action, and the gap between enthusiasm and delivery.',
+    S:  'Reliable, supportive, and consistent. Often the person others depend on. In coaching, focus on visibility and assertiveness — they may do more than they get credit for, can avoid conflict when they should not, and may wait to be asked rather than stepping forward.',
+    C:  'Analytical, precise, and quality-driven. May hold high standards for their work. In coaching, focus on speed and communication — they can over-analyse before deciding, may under-communicate their thinking, and can appear slow when they are actually being thorough.',
+    DC: 'Driven and precise. May want results done right and quickly. In coaching, focus on people — this profile may come across as demanding, prioritising outcomes over relationships. They may often be right, but not always effective. Key question: do people want to follow them, or just comply?',
+    CD: 'Analytical instinct leads, but drives hard once decided. May form strong views internally without always sharing the reasoning, which can make them seem distant. In coaching, focus on communication — do others understand how they think, or just see the conclusions?',
+    IS: 'Warm, enthusiastic, and people-oriented. May build relationships easily. In coaching, focus on accountability and direction — this profile can struggle to hold others to standards, may avoid difficult conversations, and can lose clarity on priorities.',
+    SI: 'Patient and consistent, with natural warmth. May contribute significantly but often in the background. In coaching, focus on proactiveness and visibility — they may wait for permission rather than taking initiative.',
+    DI: 'Fast-moving, energetic, and persuasive. Often strong at starting and selling. In coaching, focus on depth and follow-through — this profile can underestimate complexity and may leave a trail of unfinished initiatives.',
+    ID: 'Charismatic and influential, with drive behind it. In coaching, focus on structure and accountability — may be great at inspiring but can struggle when the work becomes operational. Key question: what happens when the excitement fades?',
+    SC: 'Careful, supportive, and quality-focused. May do thorough work quietly. In coaching, focus on confidence and speaking up — this profile may often have the best thinking in the room but not share it, and can defer to louder voices.',
+    CS: 'Precise and reliable, deeply risk-aware. In coaching, focus on decisiveness and assertiveness — can become cautious wanting more certainty, or may stay in a situation too long because change feels risky.'
+  };
+  return {D:scores.D, I:scores.I, S:scores.S, C:scores.C, profile:profile, coaching:notes[profile]||notes[primary]};
+}
 
 document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('b1').addEventListener('click',go2);
